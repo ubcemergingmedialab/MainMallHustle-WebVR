@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <title>Spookums</title>
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="public/show-skelly.component.js"></script>
+  <script src="public/skelly-scare.component.js"></script>
+ <!-- <script type="text/javascript" src="js/eduRoomStudent.component.js"></script> -->
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+        <a-asset-item id="room" src="public/spooky_room.obj"></a-asset-item>
+        <a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>
+        <img id="ground" src="public/ground.png">
+        <img id="skeleton" src="public/skeleton.png">
+    </a-assets> 
+    <a-entity obj-model="obj: #room; mtl:#room-mtl" scale="7 10000 7" position="0 100 -100" rotation="0 90 0" ></a-entity>
+    <a-box color="#000000" height="3.5" width="1.75" position="0 1.5 -90" show-skelly></a-box>
+    <a-sky color="#000000"></a-sky>
+    <a-light type="ambient" color="white" position="0 0 0" intensity="100"></a-light>
+    <a-image position="0 -0.025 0" height="300" width="12" rotation="90 0 0" src="#ground"
+       repeat="300 12" material="color:#ebd9e9" geometry></a-image>
+    <a-image position="0 1.5 -89" height="3" width="1.5" src="#skeleton" material="color:#000000" repeat="1 1" geometry skelly-scare></a-image>
+    <a-entity id="player" wasd-controls>
+      <a-camera active="true" user-height="0" position="0 2 0" look-controls>
+        </a-ring>
+      </a-camera>
+    </a-entity>
+  </a-scene>
+</body>
+
+</html>
