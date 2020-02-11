@@ -6,7 +6,8 @@ AFRAME.registerComponent('cursor-listener', {
         lastIndex = (lastIndex + 1) % COLORS.length;
         this.setAttribute('material', 'color', COLORS[lastIndex]);
         console.log('I was clicked at: ', evt.detail.intersection.point);
-        document.getElementById('Start Scene').setAttribute('visible', 'false')
+        document.getElementById('Start Scene').setAttribute('visible', 'false');
+        document.getElementById('End Scene').setAttribute('visible', 'true');
       });
     }
   });

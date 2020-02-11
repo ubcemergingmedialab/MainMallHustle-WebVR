@@ -5,6 +5,7 @@
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
   <script src="public/scripts/cursor_listner.js"></script>
+  <script src="public/scripts/main_mall_manager.js"></script>
   <!--<script src="public/show-skelly.component.js"></script>-->
   <!--<script src="public/skelly-scare.component.js"></script>-->
   <!-- <script type="text/javascript" src="js/eduRoomStudent.component.js"></script> -->
@@ -14,19 +15,24 @@
   <a-scene>
     <a-assets>
         <!--Start Scene Assets-->
-        <img id="start_background" src="public/materials/Start Background.png">
-        <img id="main_menu" src="public/materials/Main Menu.png">
-        <img id="about_game_menu" src="public/materials/About Game Menu.png">
-        <img id="about_team_menu" src="public/materials/About Team Menu.png">
+        <img id="start_scene_background" src="public/materials/start_scene_background.png">
+        <img id="main_menu" src="public/materials/main_menu.png">
+        <img id="about_game_menu" src="public/materials/about_game_menu.png">
+        <img id="about_team_menu" src="public/materials/about_team_menu.png">
         <!--Game Mode Assets-->
+        <!--Fail Scene Assets-->
+        <img id="fail_menu" src="public/materials/fail_menu.png">
+        <!--End Scene Assets-->
+        <img id="end_scene_background" src="public/materials/end_scene_background.JPG">
+        <img id="end_menu" src="public/materials/end_menu.png">
         <!--<a-asset-item id="room" src="public/spooky_room.obj"></a-asset-item>-->
         <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
-    
-    <a-entity id="Main Mall Manager"></a-entity>
-    
+  
+    <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
+
     <a-entity id="Start Scene">
-      <a-sky rotation="0 -120 0" src="#start_background"></a-sky>
+      <a-sky rotation="0 -120 0" src="#start_scene_background"></a-sky>
       <a-image position="0 0 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
       <a-box id="box" position = "0 0.23 -1.5" width="0.72" height="0.21" depth="0.01" material="color: blue" cursor-listener></a-box>
       <a-image position="-1.5 0 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
@@ -41,7 +47,15 @@
     <a-entity id="Fail Scene">
     </a-entity>
 
-    <a-entity id="End Sceene"></a-entity>
+    <a-entity id="End Scene">
+      <a-sky rotation="0 -80 0" src="#end_scene_background"></a-sky>
+      <a-image position="0 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
+      <a-camera active="true" position="0 0 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
+        <a-entity position="0 0 -1" cursor="fuse: true; fuseTimeout: 1000" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat"></a-entity> <!--Z-->
+      </a-camera> 
+    </a-entity>
+
+    
     <!--<a-entity obj-model="obj: #room; mtl:#room-mtl" scale="7 10000 7" position="0 100 -100" rotation="0 90 0" ></a-entity>-->
     <!--<a-box color="#000000" height="3.5" width="1.75" position="0 1.5 -90" show-skelly></a-box>-->
     <!--<a-light type="ambient" color="white" position="0 0 0" intensity="100"></a-light>-->
