@@ -4,7 +4,9 @@
   <title>Main Mall Hustle</title>
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
-  <script src="public/scripts/cursor_listner.js"></script>
+  <script src="public/scripts/start_scene_cursor_listener.js"></script>
+  <script src="public/scripts/fail_scene_cursor_listener.js"></script>
+  <script src="public/scripts/end_scene_cursor_listener.js"></script>
   <script src="public/scripts/main_mall_manager.js"></script>
   <!--<script src="public/show-skelly.component.js"></script>-->
   <!--<script src="public/skelly-scare.component.js"></script>-->
@@ -36,23 +38,23 @@
     <a-entity id="Start Scene">
       <a-sky rotation="0 -120 0" src="#start_scene_background"></a-sky>
       <a-image position="0 0 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
-      <a-box id="run_button" position = "0 0.23 -1.5" width="0.72" height="0.21" depth="0.01" material="color: blue" cursor-listener></a-box>
+      <a-box id="start_scene_button" position = "0 0.23 -1.5" width="0.72" height="0.21" depth="0.01" material="color: blue" start-scene-cursor-listener></a-box>
       <a-image position="-1.5 0 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
       <a-image position="1.5 0 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
     </a-entity>
 
     <!--<a-entity id="Game Mode"></a-entity>-->
 
-    <!-- <a-entity id="Fail Scene">
+    <a-entity id="Fail Scene">
       <a-sky color="#B18840"></a-sky>
-      <a-image position="0 0 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
-      <a-box id="main_menu_button1" position = "0 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" cursor-listener></a-box>
-    </a-entity> -->
+      <a-image position="-0.5 0 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
+      <a-box id="fail_scene_button" position = "-0.5 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" fail-scene-cursor-listener></a-box>
+    </a-entity>
 
     <a-entity id="End Scene">
-      <a-sky rotation="0 -80 0" src="#end_scene_background"></a-sky>
-      <a-image position="0 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
-      <a-box id="main_menu_button" position = "0 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" cursor-listener></a-box>
+      <a-sky rotation="0.5 -80 0" src="#end_scene_background"></a-sky>
+      <a-image position="0.5 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
+      <a-box id="end_scene_button" position = "0.5 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" end-scene-cursor-listener></a-box>
     </a-entity>
 
     <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
