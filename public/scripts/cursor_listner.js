@@ -1,18 +1,29 @@
 AFRAME.registerComponent('cursor-listener', {
-    init: function () {
-      // var lastIndex = -1;
-      // var COLORS = ['red', 'green', 'blue'];
-      this.el.addEventListener('click', function (evt) {
-        // lastIndex = (lastIndex + 1) % COLORS.length;
-        // this.setAttribute('material', 'color', COLORS[lastIndex]);
-        // console.log('I was clicked at: ', evt.detail.intersection.point);
-        if (document.getElementById('Start Scene').getAttribute('visible')) {
-          document.getElementById('Start Scene').setAttribute('visible', 'false');
-          document.getElementById('End Scene').setAttribute('visible', 'true');
-        } else if (document.getElementById('End Scene').getAttribute('visible')) {
-          document.getElementById('End Scene').setAttribute('visible', 'false');
-          document.getElementById('Start Scene').setAttribute('visible', 'true');
-        }
-      });
-    }
-  });
+  init: function () {
+    this.eventHandler = () => {
+      console.log(document.getElementById('Start Scene').getAttribute('visible'));
+      if (document.getElementById('Start Scene').getAttribute('visible')) {
+        console.log("fail scene");
+        document.getElementById('Start Scene').setAttribute('visible', 'false');
+        document.getElementById('run_button').removeEventListener('click', this.eventHandler);
+        // document.getElementById('camera1').setAttribute('active', 'false');
+        // console.log(document.getElementById('camera1').getAttribute('active'));
+        document.getElementById('End Scene').setAttribute('visible', 'true');
+        document.getElementById('main_menu_button').addEventListener('click', this.eventHandler);
+      } else {
+        document.getElementById('End Scene').setAttribute('visible', 'false');
+        document.getElementById('main_menu_button').removeEventListener('click', this.eventHandler);
+        // document.getElementById('camera1').setAttribute('active', 'false');
+        // console.log(document.getElementById('camera1').getAttribute('active'));
+        document.getElementById('Start Scene').setAttribute('visible', 'true');
+        document.getElementById('run_button').addEventListener('click', this.eventHandler);
+      }
+    };
+    console.log("ok???");
+    this.el.addEventListener('click', this.eventHandler); // handler name only, not function with ().
+    document.getElementById('main_menu_button').removeEventListener('click', this.eventHandler);
+    // document.getElementById('main_menu_button2').removeEventListener('click', this.eventHandler);
+    // window.onload = this.init();
+    console.log("I am here");
+  },
+});

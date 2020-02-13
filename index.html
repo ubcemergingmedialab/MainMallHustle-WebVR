@@ -8,7 +8,7 @@
   <script src="public/scripts/main_mall_manager.js"></script>
   <!--<script src="public/show-skelly.component.js"></script>-->
   <!--<script src="public/skelly-scare.component.js"></script>-->
-  <!-- <script type="text/javascript" src="js/eduRoomStudent.component.js"></script> -->
+  <!-- <script type="text/javascript" src="js/eduRoomStudent.component.js"></script>-->
 </head>
 
 <body>
@@ -28,13 +28,11 @@
         <!--<a-asset-item id="room" src="public/spooky_room.obj"></a-asset-item>-->
         <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
-  
-    <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
 
     <a-entity id="Start Scene">
       <a-sky rotation="0 -120 0" src="#start_scene_background"></a-sky>
       <a-image position="0 0 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
-        <a-box id="run_button" position = "0 0.23 -1.5" width="0.72" height="0.21" depth="0.01" material="color: blue" cursor-listener></a-box>
+      <a-box id="run_button" position = "0 0.23 -1.5" width="0.72" height="0.21" depth="0.01" material="color: blue" cursor-listener></a-box>
       <a-image position="-1.5 0 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
       <a-image position="1.5 0 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
       <a-camera active="true" position="0 0 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
@@ -42,20 +40,24 @@
       </a-camera> 
     </a-entity>
 
-    <a-entity id="Game Mode"></a-entity>
+    <!--<a-entity id="Game Mode"></a-entity>-->
 
-    <a-entity id="Fail Scene">
-    </a-entity>
+    <!-- <a-entity id="Fail Scene">
+      <a-sky color="#B18840"></a-sky>
+      <a-image position="0 0 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
+      <a-box id="main_menu_button1" position = "0 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" cursor-listener></a-box>
+    </a-entity> -->
 
     <a-entity id="End Scene">
       <a-sky rotation="0 -80 0" src="#end_scene_background"></a-sky>
       <a-image position="0 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
-        <a-box id="main_menu_button" position = "0 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" cursor-listener></a-box>
+      <a-box id="main_menu_button" position = "0 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" cursor-listener></a-box>
       <a-camera active="true" position="0 0 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
-        <a-entity position="0 0 -1" cursor="fuse: true; fuseTimeout: 1500" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat"></a-entity> <!--Z-->
-      </a-camera> 
+        <a-entity cursor="fuse: true; fuseTimeout: 1500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat"></a-entity> <!--Z-->
+      </a-camera>
     </a-entity>
 
+    <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
     
     <!--<a-entity obj-model="obj: #room; mtl:#room-mtl" scale="7 10000 7" position="0 100 -100" rotation="0 90 0" ></a-entity>-->
     <!--<a-box color="#000000" height="3.5" width="1.75" position="0 1.5 -90" show-skelly></a-box>-->
