@@ -4,7 +4,9 @@ AFRAME.registerComponent('fail-scene-cursor-listener', {
         console.log("Fail scene status: " + document.getElementById('Fail Scene').getAttribute('visible'));
         if (document.getElementById('Fail Scene').getAttribute('visible')) {
           document.getElementById('Fail Scene').setAttribute('visible', 'false');
+          document.getElementById('fail_scene_button').removeAttribute('class');
           document.getElementById('End Scene').setAttribute('visible', 'true');
+          document.getElementById('end_scene_button').setAttribute('class', 'clickable');
           console.log("Currently at: end scene");
         }
       };
