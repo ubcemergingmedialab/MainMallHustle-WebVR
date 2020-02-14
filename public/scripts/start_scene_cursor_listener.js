@@ -4,6 +4,7 @@ AFRAME.registerComponent('start-scene-cursor-listener', {
       console.log("Start scene status: " + document.getElementById('Start Scene').getAttribute('visible'));
       if (document.getElementById('Start Scene').getAttribute('visible')) {
         document.getElementById('Start Scene').setAttribute('visible', 'false');
+        
         document.getElementById('Fail Scene').setAttribute('visible', 'true');
         console.log("Currently at: fail scene");
       }

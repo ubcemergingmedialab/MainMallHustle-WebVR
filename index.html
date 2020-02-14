@@ -32,7 +32,17 @@
     </a-assets>
 
     <a-camera active="true" position="0 0 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
-      <a-entity position="0 0 -1" cursor="fuse: true; fuseTimeout: 1500" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat"></a-entity> <!--Z-->
+      <a-entity cursor="fuse: true; fuseTimeout: 1500; maxDistance: 30" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
+        <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        <!--<a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1 " to="0.1 0.1 0.1"></a-animation>-->
+      </a-entity>
+      <!-- <a-entity cursor="fuse: true;"
+                position="0 0 -0.5"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                material="color: white; shader: flat">
+        <a-animation begin="click" easing="ease-in" attribute="scale" dur="0" fill="forwards" from="0.02 0.02 0.02" to="0.01 0.01 0.01"></a-animation>
+        <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500" fill="backwards" from="0.01 0.01 0.01" to="0.02 0.02 0.02"></a-animation>
+      </a-entity> -->
     </a-camera> 
     
     <a-entity id="Start Scene">
@@ -47,14 +57,14 @@
 
     <a-entity id="Fail Scene">
       <a-sky color="#B18840"></a-sky>
-      <a-image position="-0.5 0 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
-      <a-box id="fail_scene_button" position = "-0.5 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" fail-scene-cursor-listener></a-box>
+      <a-image position="-0.25 0 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
+      <a-box id="fail_scene_button" position = "-0.25 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" fail-scene-cursor-listener></a-box>
     </a-entity>
 
     <a-entity id="End Scene">
       <a-sky rotation="0.5 -80 0" src="#end_scene_background"></a-sky>
-      <a-image position="0.5 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
-      <a-box id="end_scene_button" position = "0.5 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" end-scene-cursor-listener></a-box>
+      <a-image position="0.25 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
+      <a-box id="end_scene_button" position = "0.25 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" end-scene-cursor-listener></a-box>
     </a-entity>
 
     <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
