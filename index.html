@@ -19,6 +19,7 @@
         <img id="about_game_menu" src="public/materials/about_game_menu.png">
         <img id="about_team_menu" src="public/materials/about_team_menu.png">
         <!--Game Mode Assets-->
+        <img id="font_image" src="public/fonts/Whitney-Bold-Pro-msdf.png">-->
         <!--Fail Scene Assets-->
         <img id="fail_menu" src="public/materials/fail_menu.png">
         <!--End Scene Assets-->
@@ -28,22 +29,31 @@
         <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
 
-    <a-camera active="true" position="0 0 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
-      <a-entity cursor="fuse: true; fuseTimeout: 1500; maxDistance: 30" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
-        <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
-      </a-entity>
-    </a-camera> 
-    
     <a-entity id="Start Scene">
       <a-sky rotation="0 -120 0" src="#start_scene_background"></a-sky>
-      <a-image position="0 0 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
-      <a-entity id="start_scene_button" class="clickable" position="0 0.23 -1.5" geometry="primitive: box; width: 0.72; height: 0.21; depth: 0.01" material="color: blue;" start-scene-cursor-listener></a-entity>
+      <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
+      <a-entity id="start_scene_button" class="clickable" position="0 1.83 -1.5" geometry="primitive: box; width: 0.72; height: 0.21; depth: 0.01" material="opacity: 0;" start-scene-cursor-listener></a-entity>
       <!--<a-box id="start_scene_button" position = "0 0.23 -1.5" width="0.72" height="0.21" depth="0.01" material="color: blue;" start-scene-cursor-listener></a-box>-->
-      <a-image position="-1.5 0 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
-      <a-image position="1.5 0 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
+      <a-image position="-1.5 1.6 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
+      <a-image position="1.5 1.6 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
+      <a-camera id = "start_scene_camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
+        <a-entity cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
+          <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        </a-entity>
+      </a-camera> 
     </a-entity>
 
-    <!--<a-entity id="Game Mode"></a-entity>-->
+    <a-entity id="Game Scene">
+      <a-sky color="#B18840"></a-sky>
+      <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0"></a-plane>
+      <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
+      <a-entity text="value:Hello; color:#FFFFFF; shader: msdf; font:public/fonts/Whitney-Bold-Pro-msdf.json;" scale="1000 1000 1000" position="0 0 0"></a-entity>
+      <a-camera id = "game_scene_camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
+        <!-- <a-text position="-0.25 0.5 -1" value="99:99"></a-text> -->
+        
+        <!-- <a-entity id="timer_text" text="value:99:99; color:#FFFFFF; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/berkshireswash/BerkshireSwash-Regular.json;" position="0.25 0.5 -"></a-entity> -->
+      </a-camera> 
+    </a-entity>
 
     <a-entity id="Fail Scene">
       <a-sky color="#B18840"></a-sky>
@@ -60,7 +70,7 @@
     </a-entity>
 
     <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
-    
+
     <!--<a-entity obj-model="obj: #room; mtl:#room-mtl" scale="7 10000 7" position="0 100 -100" rotation="0 90 0" ></a-entity>-->
     <!--<a-box color="#000000" height="3.5" width="1.75" position="0 1.5 -90" show-skelly></a-box>-->
     <!--<a-light type="ambient" color="white" position="0 0 0" intensity="100"></a-light>-->
