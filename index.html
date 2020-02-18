@@ -8,6 +8,7 @@
   <script src="public/scripts/fail_scene_cursor_listener.js"></script>
   <script src="public/scripts/end_scene_cursor_listener.js"></script>
   <script src="public/scripts/main_mall_manager.js"></script>
+  <script src="public/scripts/timer.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
         <img id="about_game_menu" src="public/materials/about_game_menu.png">
         <img id="about_team_menu" src="public/materials/about_team_menu.png">
         <!--Game Mode Assets-->
-        <img id="font_image" src="public/fonts/Whitney-Bold-Pro-msdf.png">-->
+        <img id="font_image" src="public/fonts/Whitney.png">-->
         <!--Fail Scene Assets-->
         <img id="fail_menu" src="public/materials/fail_menu.png">
         <!--End Scene Assets-->
@@ -47,10 +48,10 @@
       <a-sky color="#B18840"></a-sky>
       <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0"></a-plane>
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
-      <a-entity text="value:Hello; color:#FFFFFF; shader: msdf; font:public/fonts/Whitney-Bold-Pro-msdf.json;" scale="1000 1000 1000" position="0 0 0"></a-entity>
-      <a-camera id = "game_scene_camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
+      <a-entity id="timer_text" text="value:Hello; color:#FFFFFF" scale="10 10 10" position="12 -1 -1" timer></a-entity>
+      <a-camera id="game_scene_camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
         <!-- <a-text position="-0.25 0.5 -1" value="99:99"></a-text> -->
-        
+        <!-- <a-text value="Hello World" position="0 0 -1" font="public/fonts/Whitney.fnt"></a-entity> -->
         <!-- <a-entity id="timer_text" text="value:99:99; color:#FFFFFF; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/berkshireswash/BerkshireSwash-Regular.json;" position="0.25 0.5 -"></a-entity> -->
       </a-camera> 
     </a-entity>
