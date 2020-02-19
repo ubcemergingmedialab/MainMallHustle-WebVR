@@ -1,6 +1,6 @@
 AFRAME.registerComponent('timer', {
     schema: {
-        timeBank: {type: 'number', default: 600},
+        timeBank: {type: 'number', default: 100},
         timeMultiplier: {type: 'number', default: 7.5}
     },
     init: function () {
@@ -19,15 +19,25 @@ AFRAME.registerComponent('timer', {
         // Until then, continue the research on cross-entity communications.
         let el = this.el;
         let data = this.data;
-        if (document.getElementById('start_scene_button').getAttribute('start-scene-cursor-listener').isStartButtonActive) {
-            console.log("yes");
+        if (document.getElementById('Game Scene').getAttribute('visible')) {
+            data.timeBank -= timeDelta/1000 * data.timeMultiplier;
+            if (data.timeBank >= 0) {
+                let minutes = Math.floor(data.timeBank / 60);
+                let seconds = Math.floor(data.timeBank % 60);
+                let formattedMinutes = minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
+                let formattedSeconds = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+                let timerString = formattedMinutes + ":" + formattedSeconds;
+                el.setAttribute('text', {value: timerString, color: "#FFFFFF"});
+            } else {
+                // document.getElementById('start_scene_button').removeAttribute('class');
+                document.getElementById('Game Scene').setAttribute('visible', 'false');
+                document.getElementById('game_scene_camera').setAttribute('active', 'false');
+
+                // document.getElementById('Fail Scene').setAttribute('visible', 'true');
+                // document.getElementById('fail_scene_camera').setAttribute('active', 'true');
+                // document.getElementById('fail_scene_button').setAttribute('class', 'clickable');
+                console.log("Are we here??");
+            }
         }
-        data.timeBank -= timeDelta/1000 * data.timeMultiplier;
-        let minutes = Math.floor(data.timeBank / 60);
-        let seconds = Math.floor(data.timeBank % 60);
-        let formattedMinutes = minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})
-        let formattedSeconds = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
-        let timerString = formattedMinutes + ":" + formattedSeconds;
-        el.setAttribute('text', {value: timerString, color: "#FFFFFF"});
     }
-  });
+});

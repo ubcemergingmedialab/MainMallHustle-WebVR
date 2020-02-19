@@ -48,8 +48,8 @@
       <a-sky color="#B18840"></a-sky>
       <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0"></a-plane>
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
-      <a-entity id="timer_text" text="value:Hello; color:#FFFFFF" scale="10 10 10" position="12 -1 -1" timer></a-entity>
       <a-camera id="game_scene_camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
+        <a-entity id="timer_text" position="0 0.75 -1.5" text="value:Hello; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="7 7 7" timer></a-entity>
         <!-- <a-text position="-0.25 0.5 -1" value="99:99"></a-text> -->
         <!-- <a-text value="Hello World" position="0 0 -1" font="public/fonts/Whitney.fnt"></a-entity> -->
         <!-- <a-entity id="timer_text" text="value:99:99; color:#FFFFFF; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/berkshireswash/BerkshireSwash-Regular.json;" position="0.25 0.5 -"></a-entity> -->
@@ -58,9 +58,14 @@
 
     <a-entity id="Fail Scene">
       <a-sky color="#B18840"></a-sky>
-      <a-image position="0 0 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
-      <a-entity id="fail_scene_button" class="clickable" position="0 -0.82 -1.5" geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="color: blue;" fail-scene-cursor-listener></a-entity>
+      <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
+      <a-entity id="fail_scene_button" class="clickable" position="0 0.78 -1.5" geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="color: blue;" fail-scene-cursor-listener></a-entity>
       <!--<a-box id="fail_scene_button" position = "-0.25 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" fail-scene-cursor-listener></a-box>-->
+      <a-camera id = "fail_scene_camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
+        <a-entity cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
+          <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        </a-entity>
+      </a-camera> 
     </a-entity>
 
     <a-entity id="End Scene">
