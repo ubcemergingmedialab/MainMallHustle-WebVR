@@ -1,6 +1,6 @@
 AFRAME.registerComponent('timer', {
     schema: {
-        timeBank: {type: 'number', default: 100},
+        timeBank: {type: 'number', default: 60000},
         timeMultiplier: {type: 'number', default: 7.5}
     },
     init: function () {
@@ -36,34 +36,8 @@ AFRAME.registerComponent('timer', {
                 document.getElementById('Fail Scene').setAttribute('visible', 'true');
                 document.getElementById('fail_scene_button').setAttribute('class', 'clickable');
                 document.getElementById('cursor').setAttribute('visible', 'true');
-                // let timerNode = document.getElementById('timer_text');
-                // document.getElementById('camera').remove(timerNode);
-
-                // document.getElementById('Fail Scene').setAttribute('visible', 'true');
-                
-                // let cursorNode = document.createElement('a-entity');
-                // cursorNode.setAttribute('id', 'cursor');
-                // cursorNode.setAttribute('cursor', {fuse: true, fuseTimeout: 1000});
-                // cursorNode.setAttribute('raycaster', {objects: '.clickable'}); //?
-                // cursorNode.setAttribute('position', {x: 0, y: 0, z: -1});
-                // cursorNode.setAttribute('geometry', {primitive: 'ring', radiusInner: 0.02, radiusOuter: 0.03});
-                // cursorNode.setAttribute('material', {color: 'white', shader: 'flat'});
-                // let animationNode = document.createElement('a-animation');
-                // animationNode.setAttribute('begin', 'cursor-hovering');
-                // animationNode.setAttribute('easing', 'ease-in');
-                // animationNode.setAttribute('attribute', 'scale');
-                // animationNode.setAttribute('fill', 'backwards');
-                // animationNode.setAttribute('from', "0.1 0.1 0.1");
-                // animationNode.setAttribute('to', "1 1 1");
-                // cursorNode.appendChild(animationNode);
-                // document.getElementById('camera').appendChild(cursorNode);
-
-                // document.getElementById('fail_scene_button').setAttribute('class', 'clickable');
                 
                 data.timeBank = 100;
-                // document.getElementById('Fail Scene').setAttribute('visible', 'true');
-                // document.getElementById('fail_scene_camera').setAttribute('active', 'true');
-                // document.getElementById('fail_scene_button').setAttribute('class', 'clickable');
             }
         }
     }

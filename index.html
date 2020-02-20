@@ -9,26 +9,28 @@
   <script src="public/scripts/end_scene_cursor_listener.js"></script>
   <script src="public/scripts/main_mall_manager.js"></script>
   <script src="public/scripts/timer.js"></script>
-  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.js"></script>
+  <script src="public/scripts/player_controller.js"></script>
+  <script src="public/scripts/physics_world.js"></script>
 </head>
 
 <body>
-  <a-scene>
+  <a-scene physics-world>
     <a-assets>
-        <!--Start Scene Assets-->
-        <img id="start_scene_background" src="public/materials/start_scene_background.png">
-        <img id="main_menu" src="public/materials/main_menu.png">
-        <img id="about_game_menu" src="public/materials/about_game_menu.png">
-        <img id="about_team_menu" src="public/materials/about_team_menu.png">
-        <!--Game Mode Assets-->
-        <img id="font_image" src="public/fonts/Whitney.png">-->
-        <!--Fail Scene Assets-->
-        <img id="fail_menu" src="public/materials/fail_menu.png">
-        <!--End Scene Assets-->
-        <img id="end_scene_background" src="public/materials/end_scene_background.JPG">
-        <img id="end_menu" src="public/materials/end_menu.png">
-        <!--<a-asset-item id="room" src="public/spooky_room.obj"></a-asset-item>-->
-        <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
+      <!--Start Scene Assets-->
+      <img id="start_scene_background" src="public/materials/start_scene_background.png">
+      <img id="main_menu" src="public/materials/main_menu.png">
+      <img id="about_game_menu" src="public/materials/about_game_menu.png">
+      <img id="about_team_menu" src="public/materials/about_team_menu.png">
+      <!--Game Mode Assets-->
+      <img id="font_image" src="public/fonts/Whitney.png">-->
+      <!--Fail Scene Assets-->
+      <img id="fail_menu" src="public/materials/fail_menu.png">
+      <!--End Scene Assets-->
+      <img id="end_scene_background" src="public/materials/end_scene_background.JPG">
+      <img id="end_menu" src="public/materials/end_menu.png">
+      <!--<a-asset-item id="room" src="public/spooky_room.obj"></a-asset-item>-->
+      <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
 
     <a-camera id="camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
@@ -48,9 +50,13 @@
     </a-entity>
 
     <a-entity id="Game Scene">
-      <a-sky color="#B18840"></a-sky>
-      <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0"></a-plane>
+      <a-sky color="#888888"></a-sky>
+      <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0" static-body></a-plane>
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
+      <a-box position="0 155.5 -3" width="2" height="2" depth="2" dynamic-body></a-box>
+      <a-sphere id="sphere" radius="2" position="0 2 0" dynamic-body>
+      
+      </a-sphere>
     </a-entity>
 
     <a-entity id="Fail Scene">
@@ -68,13 +74,6 @@
     </a-entity>
 
     <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
-
-    <!--<a-entity obj-model="obj: #room; mtl:#room-mtl" scale="7 10000 7" position="0 100 -100" rotation="0 90 0" ></a-entity>-->
-    <!--<a-box color="#000000" height="3.5" width="1.75" position="0 1.5 -90" show-skelly></a-box>-->
-    <!--<a-light type="ambient" color="white" position="0 0 0" intensity="100"></a-light>-->
-    <!--<a-image position="0 -0.025 0" height="300" width="12" rotation="90 0 0" src="#ground"
-       repeat="300 12" material="color:#ebd9e9" geometry></a-image>-->
-    <!--<a-image position="0 1.5 -89" height="3" width="1.5" src="#skeleton" material="color:#000000" repeat="1 1" geometry skelly-scare></a-image>-->
   </a-scene>
 </body>
 
