@@ -10,7 +10,8 @@
   <script src="public/scripts/main_mall_manager.js"></script>
   <script src="public/scripts/timer.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.js"></script>
-  <script src="public/scripts/player_controller.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <script src="public/scripts/camera_controller.js"></script>
   <script src="public/scripts/physics_world.js"></script>
 </head>
 
@@ -33,12 +34,22 @@
       <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
 
-    <a-camera id="camera" active="true" position="0 1.6 0" user-height="0"> <!--look-controls wasd-controls-enabled="false"-->
-      <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
-        <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
-      </a-entity>
-      <a-entity id="timer_text" position="0 0.75 -1.5" text="value:Hello; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="7 7 7" timer></a-entity>
-    </a-camera> 
+    <!-- <a-entity id="rig" position="0 0 0">
+      <a-camera id="camera" active="true" position="0 1.6 0" user-height="0"> 
+        <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
+          <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        </a-entity>
+        <a-entity id="timer_text" position="0 0.75 -1.5" text="value:Hello; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="7 7 7" timer></a-entity>
+      </a-camera> 
+    </a-entity> -->
+    <a-entity id="rig" position="0 0 0" movement-controls>
+      <a-entity id="camera" camera="active:true; user-height:0" position="0 1.6 0" look-controls> 
+        <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
+          <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        </a-entity>
+        <a-entity id="timer_text" position="0 0.75 -1.5" text="value:Hello; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="7 7 7" timer></a-entity>
+      </a-entity> 
+    </a-entity>
 
     <a-entity id="Start Scene">
       <a-sky rotation="0 -120 0" src="#start_scene_background"></a-sky>
@@ -51,10 +62,10 @@
 
     <a-entity id="Game Scene">
       <a-sky color="#888888"></a-sky>
-      <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0" static-body></a-plane>
+      <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0" static-body physics="friction: 500"></a-plane>></a-plane>
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
       <a-box position="0 155.5 -3" width="2" height="2" depth="2" dynamic-body></a-box>
-      <a-sphere id="sphere" radius="2" position="0 2 0" dynamic-body>
+      <a-sphere id="sphere" radius="2" position="0 2 0" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.05">
       
       </a-sphere>
     </a-entity>
