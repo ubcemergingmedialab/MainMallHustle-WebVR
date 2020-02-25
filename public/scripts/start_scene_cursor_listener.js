@@ -5,7 +5,6 @@ AFRAME.registerComponent('start-scene-cursor-listener', {
       if (document.getElementById('Start Scene').getAttribute('visible')) {
         document.getElementById('Start Scene').setAttribute('visible', 'false');
         document.getElementById('start_scene_button').removeAttribute('class');
-        // document.getElementById('start_scene_camera').setAttribute('active', 'false');
         document.getElementById('cursor').setAttribute('visible', 'false');
 
         document.getElementById('Game Scene').setAttribute('visible', 'true');

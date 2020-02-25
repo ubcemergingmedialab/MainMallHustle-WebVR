@@ -42,8 +42,8 @@
         <a-entity id="timer_text" position="0 0.75 -1.5" text="value:Hello; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="7 7 7" timer></a-entity>
       </a-camera> 
     </a-entity> -->
-    <a-entity id="rig" position="0 0 0" movement-controls>
-      <a-entity id="camera" camera="active:true; user-height:0" position="0 1.6 0" look-controls> 
+    <a-entity id="rig" position="0 1.6 0" movement-controls camera-controller>
+      <a-entity id="camera" camera="active:true; user-height:0" position="0 0 0" look-controls wasd-controls> 
         <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
           <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
         </a-entity>
@@ -62,10 +62,11 @@
 
     <a-entity id="Game Scene">
       <a-sky color="#888888"></a-sky>
-      <a-plane position="0 -0.025 0" color="#000" height="20000" width="10" rotation="-90 0 0" static-body physics="friction: 500"></a-plane>></a-plane>
+      <a-plane position="0 -0.025 0" color="#000" height="20000" width="500" rotation="-90 0 0" static-body physics="friction: 0"></a-plane>></a-plane>
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
       <a-box position="0 155.5 -3" width="2" height="2" depth="2" dynamic-body></a-box>
-      <a-sphere id="sphere" radius="2" position="0 2 0" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.05">
+      <a-box position="0 155.5 -3" width="2" height="2" depth="2" dynamic-body color="tomato"></a-box>
+      <a-sphere id="sphere" radius="2" position="0 0 0" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95">
       
       </a-sphere>
     </a-entity>

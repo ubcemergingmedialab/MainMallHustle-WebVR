@@ -26,11 +26,15 @@ AFRAME.registerComponent('physics-world', {
     tick: function(time, timeDelta) {
         var data = this.data;
         if (data.flag && document.getElementById('Game Scene').getAttribute('visible')) {
-            // console.log('asdfasfasf');
+            // Get camera direction
+            var camera = document.querySelector('[camera]').object3D;
+            var cameraAngle = camera.getWorldDirection(); // Why is it completely in the opposite direction?
+            // Apply impulse
             var sphere = document.getElementById('sphere');
-            // Apply impulse;
             setTimeout(function () {
-                var impulse = { x: 0, y: 0, z: -5 };
+                // console.log(angle);
+                // var impulse = { x: 0, y: 0, z: -5 };
+                var impulse = {x: -50 * cameraAngle.x, y: 0, z: -50 * cameraAngle.z}; // maybe setup up a field later
                 var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
                 sphere.body.applyImpulse(impulse, position);
             }, 25);
