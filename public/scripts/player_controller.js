@@ -2,6 +2,8 @@ AFRAME.registerComponent('player-controller', {
     schema: {
         speed: {type: 'number', default: 10},
         dashSpeed: {type: 'number', default: 20},
+        penaltySpeed: {type: 'number', default: -10},
+        factor: {type: 'number', default: 5},
         flag: {type: 'boolean', default: false},
         // oldPlayerPositionX: {type: 'number', default: 0},
         // oldPlayerPositionZ: {type: 'number', default: 0},
@@ -25,11 +27,9 @@ AFRAME.registerComponent('player-controller', {
                 var cameraAngle = camera.getWorldDirection();
                 // Apply impulse
                 var sphere = document.getElementById('sphere');
-                setTimeout(function () {
-                    var impulse = {x: 500 * cameraAngle.x, y: 0, z: 500 * cameraAngle.z}; // maybe setup up a field later
-                    var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
-                    sphere.body.applyImpulse(impulse, position);
-                }, 25);
+                var impulse = {x: 1000 * cameraAngle.x, y: 0, z: 1000 * cameraAngle.z}; // maybe setup up a field later
+                var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
+                sphere.body.applyImpulse(impulse, position);
                 // Subtract from timer, w/ minus text
                 var currentTimeBank = document.getElementById('timer_text').getAttribute('timer').timeBank;
                 document.getElementById('timer_text').setAttribute('timer', {timeBank: currentTimeBank-10, timeMultiplier: 7.5});
