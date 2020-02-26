@@ -1,13 +1,6 @@
-AFRAME.registerComponent('collision-listener', {
-    schema: {
-        speed: {type: 'number', default: 10},
-        dashSpeed: {type: 'number', default: 20},
-        flag: {type: 'boolean', default: false},
-        oldPlayerPositionZ: {type: 'number', default: 0},
-    },
+AFRAME.registerComponent('obstacle-collision-listener', {
     init: function () {
         var el = this.el;
-        var data = this.data;
         el.addEventListener('collide', () => {
             if (document.getElementById('Game Scene').getAttribute('visible')) {
                 // Get camera direction
