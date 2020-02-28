@@ -1,6 +1,6 @@
 AFRAME.registerComponent('timer', {
     schema: {
-        timeBank: {type: 'number', default: 600},
+        timeBank: {type: 'number', default: 60000},
         timeMultiplier: {type: 'number', default: 7.5}
     },
     init: function () {
@@ -38,7 +38,7 @@ AFRAME.registerComponent('timer', {
                 document.getElementById('cursor').setAttribute('visible', 'true');
 
                 document.getElementById('rig').setAttribute('position', {x: 0, y: 1.6, z: 0});
-                document.getElementById('rig').setAttribute('rotation', {x: 0, y: 0, z: 1});
+                // document.getElementById('rig').setAttribute('rotation', {x: 0, y: 0, z: 1});
                 
                 data.timeBank = 60000;
             }
