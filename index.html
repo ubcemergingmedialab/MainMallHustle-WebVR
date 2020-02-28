@@ -27,6 +27,14 @@
       <img id="about_game_menu" src="public/materials/about_game_menu.png">
       <img id="about_team_menu" src="public/materials/about_team_menu.png">
       <!--Game Mode Assets-->
+      <a-asset-item id="building" src="public/models/UBC_Buildings/full_2.obj"></a-asset-item>
+      <a-asset-item id="building-mtl" src="public/models/UBC_Buildings/full_2.mtl"></a-asset-item>
+    
+      <a-asset-item id="tree" src="public/models/tree.obj"></a-asset-item>
+      <a-asset-item id="tree-mtl" src="public/models/tree.mtl"></a-asset-item>
+      <img id="ground" src="public/materials/ground.png">
+      <img id="sky" src="public/materials/sky.png">
+
       <img id="font_image" src="public/fonts/Whitney.png">
       <!--Fail Scene Assets-->
       <img id="fail_menu" src="public/materials/fail_menu.png">
@@ -66,14 +74,22 @@
     </a-entity>
 
     <a-entity id="Game Scene">
-      <a-sky color="#888888"></a-sky>
+      <a-sky src="#sky"></a-sky>
       <a-plane position="0 -0.025 0" color="#000" height="2000" width="500" rotation="-90 0 0" static-body physics="friction: 0"></a-plane>></a-plane>
+      <a-entity obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -3 0" rotation="0 90 180" scale="-169.02156 -169.022 169"></a-entity>
+      <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 0" rotation="0 90 180" scale="1 -1 1"></a-entity>
+      <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
+      <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 0" rotation="0 90 180" scale="1 -1 1"></a-entity>
+      <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
+      <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
+      <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
+      <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
       <a-box id="leftwall"></a-box>
       <a-box id="rightwall"></a-box>
       <a-box id="backwall"></a-box>
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
       <!--<a-sphere sphere-collider='' position="3 0.5 -3" radius="0.25" color="#EF2D5E"></a-sphere>-->
-      <a-box id="student1" class="obstacle" position="0 1 -3" width="2" height="2" depth="2" static-body></a-box>
+      <!-- <a-box id="student1" class="obstacle" position="0 1 -3" width="2" height="2" depth="2" static-body></a-box>
       <a-box id="student2" class="obstacle" position="0 1 -4" width="2" height="2" depth="2" static-body></a-box>
       <a-box id="student3" class="obstacle" position="0 1 -5" width="2" height="2" depth="2" static-body></a-box>
       <a-box id="student4" class="obstacle" position="0 1 -6" width="2" height="2" depth="2" static-body></a-box>
@@ -172,7 +188,7 @@
       <a-box id="student97" class="obstacle" position="0 1 -144" width="2" height="2" depth="2" static-body></a-box>
       <a-box id="student98" class="obstacle" position="0 1 -146" width="2" height="2" depth="2" static-body></a-box>
       <a-box id="student99" class="obstacle" position="0 1 -148" width="2" height="2" depth="2" static-body></a-box>
-      <a-box id="student100" class="obstacle" position="0 1 -150" width="2" height="2" depth="2" static-body></a-box>
+      <a-box id="student100" class="obstacle" position="0 1 -150" width="2" height="2" depth="2" static-body></a-box> -->
       
       <a-box id="timbit1" class="collectible" position="50 1 -3" width="2" height="2" depth="2" color="tomato"></a-box>
       <a-box id="timbit2" class="collectible" position="51 1 -3" width="2" height="2" depth="2" color="tomato"></a-box>

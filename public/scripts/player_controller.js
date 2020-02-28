@@ -27,7 +27,7 @@ AFRAME.registerComponent('player-controller', {
                 var cameraAngle = camera.getWorldDirection();
                 // Apply impulse
                 var sphere = document.getElementById('sphere');
-                var impulse = {x: 1000 * cameraAngle.x, y: 0, z: 1000 * cameraAngle.z}; // maybe setup up a field later
+                var impulse = {x: 300 * cameraAngle.x, y: 0, z: 300 * cameraAngle.z}; // maybe setup up a field later
                 var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
                 sphere.body.applyImpulse(impulse, position);
                 // Subtract from timer, w/ minus text
@@ -48,7 +48,7 @@ AFRAME.registerComponent('player-controller', {
                 // Apply impulse
                 var sphere = document.getElementById('sphere');
                 setTimeout(function () {
-                    var impulse = {x: -500 * cameraAngle.x, y: 0, z: -500 * cameraAngle.z}; // maybe setup up a field later
+                    var impulse = {x: -150 * cameraAngle.x, y: 0, z: -150 * cameraAngle.z}; // maybe setup up a field later
                     var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
                     sphere.body.applyImpulse(impulse, position);
                 }, 25);
@@ -73,7 +73,7 @@ AFRAME.registerComponent('player-controller', {
             // Apply impulse
             var sphere = document.getElementById('sphere');
             setTimeout(function () {
-                var impulse = {x: -50 * cameraAngle.x, y: 0, z: -50 * cameraAngle.z}; // maybe setup up a field later
+                var impulse = {x: -15 * cameraAngle.x, y: 0, z: -15 * cameraAngle.z}; // maybe setup up a field later
                 var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
                 sphere.body.applyImpulse(impulse, position);
             }, 25);
