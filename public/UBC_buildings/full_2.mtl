@@ -10,8 +10,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ./materials/Chan_Centre_Texture.png
-map_d ./materials/Chan_Centre_Texture.png
+map_Kd \\Materials\\Chan_Centre_Texture.png
+map_d \\Materials\\Chan_Centre_Texture.png
 
 newmtl ICICS_Bldg_Texture.001
 Ns 179.999996
@@ -22,8 +22,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ./materials/ICICS_Bldg_Texture.png
-map_d ./materials/ICICS_Bldg_Texture.png
+map_Kd \\Materials\\ICICS_Bldg_Texture.png
+map_d \\Materials\\ICICS_Bldg_Texture.png
 
 newmtl IKB
 Ns 179.999996
@@ -34,7 +34,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ./materials/IKB_texturecolour.png
+map_Kd \\Materials\\IKB_texturecolour.png
 
 newmtl Kaiser_Bldg_Texture
 Ns 179.999996
@@ -45,8 +45,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ./materials/Kaiser_Bldg_Texture.png
-map_d ./materials/Kaiser_Bldg_Texture.png
+map_Kd \\Materials\\Kaiser_Bldg_Texture.png
+map_d \\Materials\\Kaiser_Bldg_Texture.png
 
 newmtl Macleod_Bldg_Texture
 Ns 179.999996
@@ -57,8 +57,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ./materials/Macleod_Bldg_Texture.png
-map_d ./materials/Macleod_Bldg_Texture.png
+map_Kd \\Materials\\Macleod_Bldg_Texture.png
+map_d \\Materials\\Macleod_Bldg_Texture.png
 
 newmtl Material.002
 Ns 225.000000
@@ -349,8 +349,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ./materials/Math_Annex_Texture.png
-map_d ./materials/Math_Annex_Texture.png
+map_Kd \\Materials\\Math_Annex_Texture.png
+map_d \\Materials\\Math_Annex_Texture.png
 
 newmtl biotex
 Ns 179.999996
@@ -361,7 +361,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ./materials/biolab.jpg
+map_Kd \\Materials\\biolab.jpg
 
 newmtl chemtex
 Ns 179.999996
