@@ -29,8 +29,12 @@
       <!--Game Mode Assets-->
       <img id="ground" src="public/materials/ground.png">
       <img id="sky" src="public/materials/sky.png">
-      <a-asset-item id="building" src="public/UBC_buildings/buildings.obj"></a-asset-item>
-      <a-asset-item id="building-mtl" src="public/UBC_buildings/full_2.mtl"></a-asset-item>
+      <!-- <a-asset-item id="building" src="public/UBC_buildings/buildings.obj"></a-asset-item>
+      <a-asset-item id="building-mtl" src="public/UBC_buildings/full_2.mtl"></a-asset-item> -->
+      <a-asset-item id="buchanan-obj" src="public/buildings/Buchanan.obj"></a-asset-item>
+      <a-asset-item id="buchanan-mtl" src="public/buildings/Buchanan.mtl"></a-asset-item>
+      <a-asset-item id="sauder-obj" src="public/buildings/Sauder.obj"></a-asset-item>
+      <a-asset-item id="sauder-mtl" src="public/buildings/Sauder.mtl"></a-asset-item>
       <a-asset-item id="tree" src="public/models/tree.obj"></a-asset-item>
       <a-asset-item id="tree-mtl" src="public/models/tree.mtl"></a-asset-item>
       <img id="font_image" src="public/fonts/Whitney.png">
@@ -43,8 +47,12 @@
       <img id="person7" src="public/materials/person7.png">
       <img id="person8" src="public/materials/person8.png">
       <img id="person9" src="public/materials/person9.png">
-      <a-asset-item id="boba" src="public/models/boba.obj"></a-asset-item>"
-      <a-asset-item id="boba-mtl" src="public/models/boba.mtl"></a-asset-item>"
+      <a-asset-item id="boba" src="public/models/boba.obj"></a-asset-item>
+      <a-asset-item id="boba-mtl" src="public/models/boba.mtl"></a-asset-item>
+      <a-asset-item id="coffee" src="public/models/coffee.obj"></a-asset-item>
+      <a-asset-item id="coffee-mtl" src="public/models/coffee.mtl"></a-asset-item>
+      <a-asset-item id="donut" src="public/models/donut.obj"></a-asset-item>
+      <a-asset-item id="donut-mtl" src="public/models/donut.mtl"></a-asset-item>
 
       <!-- <img id="AERLtext" src="public/UBC_buildings/Materials/AERLtext.jpg">
       <a-asset-item id="AERLtext-meta" src="public/UBC_buildings/Materials/AERLtext.jpg.meta"></a-asset-item>
@@ -98,7 +106,7 @@
     <a-entity id="Game Scene">
       <a-sky src="#sky"></a-sky>
       <a-light type="ambient" color="#FFF"></a-light>
-      <a-plane position="0 -0.025 0" color="#000" height="2500" width="500" rotation="-90 0 0" static-body physics="friction: 0"></a-plane>></a-plane>
+      <a-plane position="0 -0.025 0" color="#3A3730" height="2500" width="500" rotation="-90 0 0" static-body physics="friction: 0"></a-plane>></a-plane>
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
       <!-- <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 0" rotation="0 90 180" scale="1 -1 1"></a-entity>
       <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
@@ -107,7 +115,7 @@
       <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
       <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
       <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity> -->
-      <a-box id="leftwall" position="-15.5 1 -530" width="1" height="2" depth ="1140"></a-box>
+      <!-- <a-box id="leftwall" position="-15.5 1 -530" width="1" height="2" depth ="1140" material="alphatest: 0.5"></a-box> -->
       <a-box id="rightwall" position="15.5 1 -530" width="1" height="2" depth ="1140"></a-box> <!-- should be 30 m apart, more or less: -16 1 -600 with dimension of 1 2 1200 -->
       <a-box id="backwall" position="0 1 40.5" width="30" height="2" depth="1"></a-box> <!-- should be 40m behind player; 0 1 40; width="30" height="2" depth="1" -->
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
@@ -116,44 +124,39 @@
         <a-animation attribute="position" from="5 1 -1" to="5 1 -3" direction="alternate" repeat="indefinite" dur="5000"></a-animation>
       </a-image>
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
+      <a-entity id="buchanan" obj-model="obj: #buchanan-obj; mtl: #buchanan-mtl" position="-25 -7.75 -110" rotation="0 90 0" scale="776 776 776"></a-entity>
+      <!-- <a-entity id="sauder" obj-model="obj: #sauder-obj; mtl: #sauder-mtl" position="-25 -17.75 -110" rotation="0 90 0" scale="776 776 776"></a-entity> -->
 
-      <a-entity id="timbit" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -4" scale="25 25 25"></a-entity>
-      <!-- <a-box id="timbit1" class="collectible" position="0 1 -4" width="2" height="2" depth="2" color="tomato"></a-box> -->
-      <a-box id="timbit2" class="collectible" position="0 1 -6" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit3" class="collectible" position="0 1 -8" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit4" class="collectible" position="0 1 -10" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit5" class="collectible" position="0 1 -12" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit6" class="collectible" position="0 1 -14" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit7" class="collectible" position="0 1 -16" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit8" class="collectible" position="0 1 -18" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit9" class="collectible" position="0 1 -20" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="timbit10" class="collectible" position="0 1 -22" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee1" class="collectible" position="0 1 -24" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee2" class="collectible" position="0 1 -26" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee3" class="collectible" position="0 1 -28" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee4" class="collectible" position="0 1 -30" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee5" class="collectible" position="0 1 -32" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee6" class="collectible" position="0 1 -34" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee7" class="collectible" position="0 1 -36" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee8" class="collectible" position="0 1 -38" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee9" class="collectible" position="0 1 -40" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="coffee10" class="collectible" position="0 1 -42" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba1" class="collectible" position="0 1 -44" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba2" class="collectible" position="0 1 -46" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba3" class="collectible" position="0 1 -48" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba3" class="collectible" position="0 1 -50" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba4" class="collectible" position="0 1 -52" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba5" class="collectible" position="0 1 -54" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba6" class="collectible" position="0 1 -56" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba7" class="collectible" position="0 1 -58" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba8" class="collectible" position="0 1 -60" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba9" class="collectible" position="0 1 -62" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba10" class="collectible" position="0 1 -64" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba11" class="collectible" position="0 1 -66" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba12" class="collectible" position="0 1 -68" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba13" class="collectible" position="0 1 -70" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba14" class="collectible" position="0 1 -72" width="2" height="2" depth="2" color="tomato"></a-box>
-      <a-box id="boba15" class="collectible" position="0 1 -74" width="2" height="2" depth="2" color="tomato"></a-box>
+      <a-entity id="timbit" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -4" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit2" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -6" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit3" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -8" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit4" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -10" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit5" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -12" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit6" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -14" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit7" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -16" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit8" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -18" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit9" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -20" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit10" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -22" scale=".05 .05 .05"></a-entity>
+      <!-- <a-entity id="coffee" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -24" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee2" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -26" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee3" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -28" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee4" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -30" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee5" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -32" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee6" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -34" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee7" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -36" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee8" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -38" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee9" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -40" scale=".00015 .00015 .00015"></a-entity>
+      <a-entity id="coffee10" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -42" scale=".00015 .00015 .00015"></a-entity> -->
+      <!-- <a-entity id="boba" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -44" scale="25 25 25"></a-entity>
+      <a-entity id="boba2" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -46" scale="25 25 25"></a-entity>
+      <a-entity id="boba3" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -48" scale="25 25 25"></a-entity>
+      <a-entity id="boba4" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -50" scale="25 25 25"></a-entity>
+      <a-entity id="boba5" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -52" scale="25 25 25"></a-entity>
+      <a-entity id="boba6" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -54" scale="25 25 25"></a-entity>
+      <a-entity id="boba7" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -56" scale="25 25 25"></a-entity>
+      <a-entity id="boba8" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -58" scale="25 25 25"></a-entity>
+      <a-entity id="boba9" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -60" scale="25 25 25"></a-entity>
+      <a-entity id="boba10" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -62" scale="25 25 25"></a-entity> -->
       <a-sphere id="sphere" radius="0.8" position="0 0 0" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95" player-controller aabb-collider="objects: .collectible, .obstacle"></a-sphere>
     </a-entity>
 

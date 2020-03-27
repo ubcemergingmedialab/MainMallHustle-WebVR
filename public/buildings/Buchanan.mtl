@@ -1,0 +1,26 @@
+newmtl Buchanan1:IKB_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd \\Materials\\IKB_texturecolour.png
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 180.00
+newmtl Buchanan1:lambert24_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd \\Materials\\Buchanan.jpg
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 180.00
+newmtl Buchanan1:lambert26_001
+illum 4
+Kd 0.71 0.71 0.71
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 180.00
