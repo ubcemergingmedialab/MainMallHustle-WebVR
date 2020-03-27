@@ -21,7 +21,7 @@ AFRAME.registerComponent('player-controller', {
         var el = this.el;
         // For collision detection
         el.addEventListener('collide', (e) => {
-            if (document.getElementById('Game Scene').getAttribute('visible')) {
+            if (document.getElementById('Game Scene').getAttribute('visible') && e.detail.body.el.getAttribute('class') == 'obstacle') {
                 // Get camera direction
                 var camera = document.querySelector('[camera]').object3D;
                 var cameraAngle = camera.getWorldDirection();
@@ -66,7 +66,7 @@ AFRAME.registerComponent('player-controller', {
     },
     tick: function(time, timeDelta) {
         var data = this.data;
-        if (data.flag && document.getElementById('Game Scene').getAttribute('visible')) {
+        if (data.flag && document.getElementById('Game Scene').getAttribute('visible') && document.getElementById('Main Mall Manager').getAttribute('main-mall-manager').isPlayerReady) {
             // Get camera direction
             var camera = document.querySelector('[camera]').object3D;
             var cameraAngle = camera.getWorldDirection(); // Why is it completely in the opposite direction?
