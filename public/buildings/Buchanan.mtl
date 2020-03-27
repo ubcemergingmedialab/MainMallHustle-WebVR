@@ -1,34 +1,26 @@
-# Blender MTL File: 'ubc_buildings - Copy.blend'
-# Material Count: 3
-
-newmtl IKB.001
-Ns 179.999996
-Ka 1.000000 1.000000 1.000000
-Kd 1.000000 1.000000 1.000000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
+newmtl Buchanan1:IKB_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
 map_Kd \\Materials\\IKB_texturecolour.png
-
-newmtl lambert24.001
-Ns 179.999996
-Ka 1.000000 1.000000 1.000000
-Kd 1.000000 1.000000 1.000000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd\\Materials\\Buchanan.jpg
-
-newmtl lambert26.001
-Ns 179.999996
-Ka 1.000000 1.000000 1.000000
-Kd 0.707792 0.707792 0.707792
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 180.00
+newmtl Buchanan1:lambert24_001
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+map_Kd \\Materials\\Buchanan.jpg
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 180.00
+newmtl Buchanan1:lambert26_001
+illum 4
+Kd 0.71 0.71 0.71
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 180.00
