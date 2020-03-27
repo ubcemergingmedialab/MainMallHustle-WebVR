@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd E:\\MainMallHustle-WebVR\\public\\UBC_buildings\\Materials\\IKB_texturecolour.png
+map_Kd \\Materials\\IKB_texturecolour.png
 
 newmtl IKB.003
 Ns 179.999996
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd E:\\MainMallHustle-WebVR\\public\\UBC_buildings\\Materials\\IKB_texturecolour.png
+map_Kd \\Materials\\IKB_texturecolour.png
 
 newmtl lambert24.002
 Ns 179.999996
@@ -32,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd E:\\MainMallHustle-WebVR\\public\\UBC_buildings\\Materials\\Buchanan.jpg
+map_Kd \\Materials\\Buchanan.jpg
 
 newmtl lambert24.003
 Ns 179.999996
@@ -43,7 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd E:\\MainMallHustle-WebVR\\public\\UBC_buildings\\Materials\\Buchanan.jpg
+map_Kd \\Materials\\Buchanan.jpg
 
 newmtl lambert26.002
 Ns 179.999996
