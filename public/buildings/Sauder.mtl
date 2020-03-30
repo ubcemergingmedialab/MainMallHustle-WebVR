@@ -1,7 +1,7 @@
 # Blender MTL File: 'None'
 # Material Count: 4
 
-newmtl lambert1.012
+newmtl lambert1.011
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -12,7 +12,7 @@ d 1.000000
 illum 2
 map_Kd Materials\\saudertext.jpg
 
-newmtl lambert10.001
+newmtl lambert10.003
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -23,7 +23,7 @@ d 1.000000
 illum 2
 map_Kd Materials\\missingbuilding.jpg
 
-newmtl lambert14.001
+newmtl lambert14.003
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 0.500000 0.500000 0.500000
@@ -33,7 +33,7 @@ Ni 1.450000
 d 1.000000
 illum 2
 
-newmtl lambert3.001
+newmtl lambert3.003
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
