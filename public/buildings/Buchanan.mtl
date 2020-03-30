@@ -1,7 +1,7 @@
 # Blender MTL File: 'None'
 # Material Count: 6
 
-newmtl IKB.004
+newmtl IKB.008
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -12,7 +12,7 @@ d 1.000000
 illum 2
 map_Kd Materials\\IKB_texturecolour.png
 
-newmtl IKB.005
+newmtl IKB.009
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -23,7 +23,7 @@ d 1.000000
 illum 2
 map_Kd Materials\\IKB_texturecolour.png
 
-newmtl lambert24.004
+newmtl lambert24.008
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -34,7 +34,7 @@ d 1.000000
 illum 2
 map_Kd Materials\\Buchanan.jpg
 
-newmtl lambert24.005
+newmtl lambert24.009
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -45,7 +45,7 @@ d 1.000000
 illum 2
 map_Kd Materials\\Buchanan.jpg
 
-newmtl lambert26.004
+newmtl lambert26.008
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 0.707792 0.707792 0.707792
@@ -55,7 +55,7 @@ Ni 1.450000
 d 1.000000
 illum 2
 
-newmtl lambert26.005
+newmtl lambert26.009
 Ns 179.999996
 Ka 1.000000 1.000000 1.000000
 Kd 0.707792 0.707792 0.707792
