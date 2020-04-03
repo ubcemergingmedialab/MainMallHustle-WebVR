@@ -16,6 +16,7 @@
   <script src="public/scripts/player_controller.js"></script>
   <script src="public/scripts/obstacle_collision_listener.js"></script>
   <script src="public/scripts/collectible_collision_listener.js"></script>
+  <script src="public/scripts/resize.js"></script>
 </head>
 
 <body>
@@ -31,10 +32,46 @@
       <img id="sky" src="public/materials/sky.png">
       <!-- <a-asset-item id="building" src="public/UBC_buildings/buildings.obj"></a-asset-item>
       <a-asset-item id="building-mtl" src="public/UBC_buildings/full_2.mtl"></a-asset-item> -->
+      <a-asset-item id="aerl-obj" src="public/buildings/AERL.obj"></a-asset-item>
+      <a-asset-item id="aerl-mtl" src="public/buildings/AERL.mtl"></a-asset-item>
+      <a-asset-item id="beaty-obj" src="public/buildings/Beaty.obj"></a-asset-item>
+      <a-asset-item id="beaty-mtl" src="public/buildings/Beaty.mtl"></a-asset-item>
+      <!-- <a-asset-item id="belkin-obj" src="public/buildings/Belkin_Art_Gallery.obj"></a-asset-item> -->
+      <!-- <a-asset-item id="belkin-mtl" src="public/buildings/Belkin_Art_Gallery.mtl"></a-asset-item> -->
+      <a-asset-item id="bio-obj" src="public/buildings/Bio_Science_Bldg.obj"></a-asset-item>
+      <a-asset-item id="bio-mtl" src="public/buildings/Bio_Science_Bldg.mtl"></a-asset-item>
       <a-asset-item id="buchanan-obj" src="public/buildings/Buchanan.obj"></a-asset-item>
       <a-asset-item id="buchanan-mtl" src="public/buildings/Buchanan.mtl"></a-asset-item>
+      <a-asset-item id="chan-obj" src="public/buildings/Chan_Center.obj"></a-asset-item>
+      <a-asset-item id="chan-mtl" src="public/buildings/Chan_Center.mtl"></a-asset-item>
+      <a-asset-item id="chem-obj" src="public/buildings/chembuilding.obj"></a-asset-item>
+      <a-asset-item id="chem-mtl" src="public/buildings/chembuilding.mtl"></a-asset-item>
+      <a-asset-item id="eosc-obj" src="public/buildings/eosc.obj"></a-asset-item>
+      <a-asset-item id="eosc-mtl" src="public/buildings/eosc.mtl"></a-asset-item>
+      <a-asset-item id="forestry-obj" src="public/buildings/forestry.obj"></a-asset-item>
+      <a-asset-item id="forestry-mtl" src="public/buildings/forestry.mtl"></a-asset-item>
+      <a-asset-item id="fredric-obj" src="public/buildings/Frederic_Lassere _Schoool_of_Music.obj"></a-asset-item>
+      <a-asset-item id="fredric-mtl" src="public/buildings/Frederic_Lassere _Schoool_of_Music.mtl"></a-asset-item>
+      <a-asset-item id="icics-obj" src="public/buildings/icics.obj"></a-asset-item>
+      <a-asset-item id="icics-mtl" src="public/buildings/icics.mtl"></a-asset-item>
+      <a-asset-item id="kaiser-obj" src="public/buildings/kaiser_bldg.obj"></a-asset-item>
+      <a-asset-item id="kaiser-mtl" src="public/buildings/kaiser_bldg.mtl"></a-asset-item>
+      <!-- <a-asset-item id="koerner-obj" src="public/buildings/koerner.obj"></a-asset-item> -->
+      <!-- <a-asset-item id="koerner-mtl" src="public/buildings/koerner.mtl"></a-asset-item> -->
+      <a-asset-item id="macleod-obj" src="public/buildings/macleod_bldg.obj"></a-asset-item>
+      <a-asset-item id="macleod-mtl" src="public/buildings/macleod_bldg.mtl"></a-asset-item>
+      <a-asset-item id="math-obj" src="public/buildings/math.obj"></a-asset-item>
+      <a-asset-item id="math-mtl" src="public/buildings/math.mtl"></a-asset-item>
+      <a-asset-item id="old-admin-obj" src="public/buildings/Old_Admin_Bldg.obj"></a-asset-item>
+      <a-asset-item id="old-admin-mtl" src="public/buildings/Old_Admin_Bldg.mtl"></a-asset-item>
+      <a-asset-item id="old-auditorium-obj" src="public/buildings/Old_Auditorium.obj"></a-asset-item>
+      <a-asset-item id="old-auditorium-mtl" src="public/buildings/Old_Auditorium.mtl"></a-asset-item>
       <a-asset-item id="sauder-obj" src="public/buildings/Sauder.obj"></a-asset-item>
       <a-asset-item id="sauder-mtl" src="public/buildings/Sauder.mtl"></a-asset-item>
+      <a-asset-item id="scarfe-obj" src="public/buildings/scarfe.obj"></a-asset-item>
+      <a-asset-item id="scarfe-mtl" src="public/buildings/scarfe.mtl"></a-asset-item>
+      <a-asset-item id="uni-obj" src="public/buildings/University_Center.obj"></a-asset-item>
+      <a-asset-item id="uni-mtl" src="public/buildings/University_Center.mtl"></a-asset-item>
       <a-asset-item id="tree" src="public/models/tree.obj"></a-asset-item>
       <a-asset-item id="tree-mtl" src="public/models/tree.mtl"></a-asset-item>
       <img id="font_image" src="public/fonts/Whitney.png">
@@ -62,7 +99,7 @@
       <a-asset-item id="Fredric-mat" src="public/UBC_buildings/Materials/Fredric_Lassere.mat"></a-asset-item>
       <a-asset-item id="Fredric-mat-meta" src="public/UBC_buildings/Materials/Fredric_Lassere.mat.meta"></a-asset-item>
       <a-asset-item id="EOS-meta" src="public/UBC_buildings/Materials/EOS.jpg.meta"></a-asset-item>
-      <img id="scarfe" src="public/UBC_buildings/Materials/texture_scarfe.jpg">
+      <img id="scarfe" rotation="0 90 0" position="61.386 10.481 -670.10498" src="public/UBC_buildings/Materials/texture_scarfe.jpg">
       <a-asset-item id="scarfe-meta" src="public/UBC_buildings/Materials/texture_scarfe.jpg.meta"></a-asset-item>
       <a-asset-item id="scarfe-mat" src="public/UBC_buildings/Materials/texture_scarfe.mat"></a-asset-item>
       <a-asset-item id="scarfe-mat-meta" src="public/UBC_buildings/Materials/texture_scarfe.mat.meta"></a-asset-item> -->
@@ -115,19 +152,37 @@
       <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
       <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity>
       <a-entity obj-model="obj: #tree; mtl:#tree-mtl " position="-1.512 0.3961 10" rotation="0 90 180" scale="1 -1 1"></a-entity> -->
-      <!-- <a-box id="leftwall" position="-15.5 1 -530" width="1" height="2" depth ="1140" material="alphatest: 0.5"></a-box> -->
-      <a-box id="rightwall" position="15.5 1 -530" width="1" height="2" depth ="1140"></a-box> <!-- should be 30 m apart, more or less: -16 1 -600 with dimension of 1 2 1200 -->
-      <a-box id="backwall" position="0 1 40.5" width="30" height="2" depth="1"></a-box> <!-- should be 40m behind player; 0 1 40; width="30" height="2" depth="1" -->
+      <a-box id="leftwall" position="-15.5 1 -550" width="1" height="2" depth ="1140" material="alphatest: 0.5"></a-box>
+      <a-box id="rightwall" position="15.5 1 -550" width="1" height="2" depth ="1140"></a-box> <!-- should be 30 m apart, more or less: -16 1 -600 with dimension of 1 2 1200 -->
+      <a-box id="backwall" position="0 1 20.5" width="30" height="2" depth="1"></a-box> <!-- should be 40m behind player; 0 1 40; width="30" height="2" depth="1" -->
       <!-- <a-entity position="0 0 0" text="font: mozillavr; value: Via stock font name."></a-entity> -->
       <!--<a-sphere sphere-collider='' position="3 0.5 -3" radius="0.25" color="#EF2D5E"></a-sphere>-->
-      <a-image id="student" class="obstacle" position="3 1 -1" width="1" height="2" src="#person1" static-body>
+      <a-image id="student" static-body="sphereRadius: NaN" class="obstacle" position="3 1 -1" width="1" height="2" src="#person1" static-body>
         <a-animation attribute="position" from="5 1 -1" to="5 1 -3" direction="alternate" repeat="indefinite" dur="5000"></a-animation>
       </a-image>
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
-      <a-entity id="buchanan" obj-model="obj: #buchanan-obj; mtl: #buchanan-mtl" position="-25 -7.75 -110" rotation="0 90 0" scale="776 776 776"></a-entity>
-      <!-- <a-entity id="sauder" obj-model="obj: #sauder-obj; mtl: #sauder-mtl" position="-25 -17.75 -110" rotation="0 90 0" scale="776 776 776"></a-entity> -->
+      <a-entity id="aerl" rotation="0 90 0" position="-63.22773 9.43444 -797.80449" obj-model="obj:#aerl-obj; mtl:#aerl-mtl" resize="axis:z; value:90"></a-entity>
+      <a-entity id="beaty" scale="1026.48 1026.48 900" rotation="0 90 0" position="-59.90378 68.88184 -803.52977" obj-model="obj:#beaty-obj; mtl:#beaty-mtl" resize="axis:z; value:69"></a-entity>
+      <!-- <a-entity id="belkin" rotation="0 90 0" obj-model="obj:#belkin-obj; mtl:#belkin-mtl" resize="axis:z; value:400"></a-entity> -->
+      <a-entity id="bio" obj-model="obj:#bio-obj; mtl:#bio-mtl" position="-66.05608 8.395 -676.342" rotation="0 90 0" resize="axis:z; value:120"></a-entity>
+      <a-entity id="buchanan" obj-model="obj:#buchanan-obj; mtl:#buchanan-mtl" position="-120.57147 36.05511 -193.58135" rotation="0 90 0" resize="axis:z; value:350"></a-entity>
+      <a-entity id="chan" rotation="0 75 0" position="-120 4.083 49.30427" obj-model="obj:#chan-obj; mtl:#chan-mtl" resize="axis:z; value:70"></a-entity>
+      <a-entity id="chem" rotation="0 90 0" position="-99.65317 9.46096 -466.68904" obj-model="obj:#chem-obj; mtl:#chem-mtl" resize="axis:z; value:140"></a-entity>
+      <a-entity id="eosc" rotation="0 90 0" position="62.96432 8.65 -827.42732" obj-model="obj:#eosc-obj; mtl:#eosc-mtl" resize="axis:z; value:140"></a-entity>
+      <a-entity id="forestry" position="0 0 -1200" obj-model="obj:#forestry-obj; mtl:#forestry-mtl" resize="axis:z; value:60"></a-entity>
+      <a-entity id="fredric" rotation="0 90 0" position="70 6.13763 -149.11798" obj-model="obj:#fredric-obj; mtl:#fredric-mtl" resize="axis:z; value:50"></a-entity>
+      <a-entity id="icics" rotation="0 90 0" position="-51.5529 12.87054 -1079.59687" obj-model="obj:#icics-obj; mtl:#icics-mtl" resize="axis:z; value:70"></a-entity>
+      <a-entity id="kaiser" rotation="0 90 0" position="-33.51313 10.1272 -932.71716" obj-model="obj:#kaiser-obj; mtl:#kaiser-mtl" resize="axis:z; value:85"></a-entity>
+      <!-- <a-entity id="koerner" obj-model="obj:#koerner-obj; mtl:#koerner-mtl" resize="axis:z; value:70"></a-entity> -->
+      <a-entity id="macleod" rotation="0 90 0" position="-36.88293 9.54474 -1010.35519" obj-model="obj:#macleod-obj; mtl:#macleod-mtl" resize="axis:z; value:70"></a-entity>
+      <a-entity id="math" rotation="0 90 0" position="64.07511 4.56931 -331.21475" obj-model="obj:#math-obj; mtl:#math-mtl" resize="axis:z; value:100"></a-entity>
+      <a-entity id="old-admin" rotation="0 90 0" position="46.57086 4.62852 -244.88179" obj-model="obj:#old-admin-obj; mtl:#old-admin-mtl" resize="axis:z; value:40"></a-entity>
+      <a-entity id="old-auditorium" rotation="0 90 0" position="99.8862 7.68147 -244.09813" obj-model="obj:#old-auditorium-obj; mtl:#old-auditorium-mtl" resize="axis:z; value:35"></a-entity>
+      <a-entity id="scarfe" obj-model="obj:#scarfe-obj; mtl:#scarfe-mtl" position="61.386 10.481 -670.1" rotation="0 90 0" resize="axis:z; value:110"></a-entity>
+      <a-entity id="sauder" obj-model="obj:#sauder-obj; mtl:#sauder-mtl" position="55.68134 15.6 -476.328" rotation="0 90 0" resize="axis:z; value:170"></a-entity>
+      <a-entity id="uni" rotation="0 90 0" position="51.74333 4.55017 18.57637" obj-model="obj:#uni-obj; mtl:#uni-mtl" resize="axis:z; value:40"></a-entity>
 
-      <a-entity id="timbit" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -4" scale=".05 .05 .05"></a-entity>
+      <a-entity id="timbit" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-5.69801 1 -4" scale=".05 .05 .05"></a-entity>
       <a-entity id="timbit2" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -6" scale=".05 .05 .05"></a-entity>
       <a-entity id="timbit3" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -8" scale=".05 .05 .05"></a-entity>
       <a-entity id="timbit4" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -10" scale=".05 .05 .05"></a-entity>
@@ -137,17 +192,17 @@
       <a-entity id="timbit8" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -18" scale=".05 .05 .05"></a-entity>
       <a-entity id="timbit9" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -20" scale=".05 .05 .05"></a-entity>
       <a-entity id="timbit10" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -22" scale=".05 .05 .05"></a-entity>
-      <!-- <a-entity id="coffee" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -24" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee2" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -26" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee3" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -28" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee4" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -30" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee5" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -32" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee6" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -34" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee7" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -36" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee8" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -38" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee9" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -40" scale=".00015 .00015 .00015"></a-entity>
-      <a-entity id="coffee10" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -42" scale=".00015 .00015 .00015"></a-entity> -->
-      <!-- <a-entity id="boba" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -44" scale="25 25 25"></a-entity>
+      <a-entity id="coffee" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -24" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee2" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -26" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee3" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -28" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee4" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -30" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee5" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -32" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee6" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -34" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee7" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -36" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee8" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -38" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee9" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -40" scale=".01 .01 .01"></a-entity>
+      <a-entity id="coffee10" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="0 1 -42" scale=".01 .01 .01"></a-entity>
+      <a-entity id="boba" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -44" scale="25 25 25"></a-entity>
       <a-entity id="boba2" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -46" scale="25 25 25"></a-entity>
       <a-entity id="boba3" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -48" scale="25 25 25"></a-entity>
       <a-entity id="boba4" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -50" scale="25 25 25"></a-entity>
@@ -156,7 +211,7 @@
       <a-entity id="boba7" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -56" scale="25 25 25"></a-entity>
       <a-entity id="boba8" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -58" scale="25 25 25"></a-entity>
       <a-entity id="boba9" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -60" scale="25 25 25"></a-entity>
-      <a-entity id="boba10" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -62" scale="25 25 25"></a-entity> -->
+      <a-entity id="boba10" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="0 1 -62" scale="25 25 25"></a-entity>
       <a-sphere id="sphere" radius="0.8" position="0 0 0" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95" player-controller aabb-collider="objects: .collectible, .obstacle"></a-sphere>
     </a-entity>
 

@@ -1,4 +1,4 @@
-# Blender MTL File: 'ubc_buildings - Copy (2).blend'
+# Blender MTL File: 'None'
 # Material Count: 2
 
 newmtl lambert23.001
@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd \\Materials\\Fredric_Lassere.png
+map_Kd Materials/Fredric_Lassere.png
 
 newmtl lambert25.001
 Ns 179.999996
@@ -21,4 +21,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd \\Materials\\school_of_music.jpg
+map_Kd Materials/school_of_music.jpg
