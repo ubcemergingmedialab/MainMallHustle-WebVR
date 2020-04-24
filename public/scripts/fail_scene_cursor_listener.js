@@ -13,3 +13,4 @@ AFRAME.registerComponent('fail-scene-cursor-listener', {
       this.el.addEventListener('click', this.eventHandler); // handler name only, not function with ()
     },
   });
+

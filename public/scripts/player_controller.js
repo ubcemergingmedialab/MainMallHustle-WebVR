@@ -3,7 +3,7 @@ AFRAME.registerComponent('player-controller', {
         speed: {type: 'number', default: 10},
         dashSpeed: {type: 'number', default: 20},
         penaltySpeed: {type: 'number', default: -10},
-        factor: {type: 'number', default: 5},
+        factor: {type: 'number', default: 5.5},
         flag: {type: 'boolean', default: false},
         // oldPlayerPositionX: {type: 'number', default: 0},
         // oldPlayerPositionZ: {type: 'number', default: 0},
@@ -73,7 +73,7 @@ AFRAME.registerComponent('player-controller', {
             // Apply impulse
             var sphere = document.getElementById('sphere');
             setTimeout(function () {
-                var impulse = {x: -15 * cameraAngle.x, y: 0, z: -15 * cameraAngle.z}; // maybe setup up a field later
+                var impulse = { x: -data.speed * data.factor * cameraAngle.x, y: 0, z: -data.speed * data.factor * cameraAngle.z}; // maybe setup up a field later
                 var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
                 sphere.body.applyImpulse(impulse, position);
             }, 25);
