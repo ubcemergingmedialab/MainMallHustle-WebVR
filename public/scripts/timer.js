@@ -17,12 +17,7 @@ AFRAME.registerComponent("timer", {
         // Until then, continue the research on cross-entity communications.
         let el = this.el;
         let data = this.data;
-        if (
-            document.getElementById("Game Scene").getAttribute("visible") &&
-            document
-                .getElementById("Main Mall Manager")
-                .getAttribute("main-mall-manager").isPlayerReady
-        ) {
+        if (document.getElementById("Game Scene").getAttribute("visible") && document.getElementById("Main Mall Manager").getAttribute("main-mall-manager").isPlayerReady) {
             el.setAttribute("scale", { x: 2, y: 2, z: 2 });
             data.timeBank -= (timeDelta / 1000) * data.timeMultiplier;
             if (data.timeBank >= 0) {
@@ -42,30 +37,30 @@ AFRAME.registerComponent("timer", {
                     color: "#FFFFFF"
                 });
             } else {
-                // document.getElementById('start_scene_button').removeAttribute('class');
-                document
-                    .getElementById("Game Scene")
-                    .setAttribute("visible", "false");
-                document
-                    .getElementById("timer_text")
-                    .setAttribute("visible", "false");
+                data.timeBank = 60;
+                this.el.value = "Johnny Bravo"; 
+                // this.el.setAttribute('value', 'Press trigger when you\'re ready');
+                console.log(this.el.value);
+                // document.getElementById("sphere").object3D.position.x = 5;
+                document.getElementById("sphere").object3D.position.set(0, 1.6, 0);
+                // document.getElementById("sphere").setAttribute("position", { x: 0, y: 1.6, z: 0 });
+                console.log(document.getElementById("sphere").getAttribute("position"));
+                document.querySelector('a-scene').flushToDOM();
+                console.log(document.getElementById("sphere").getAttribute("position"));
 
-                document
-                    .getElementById("Fail Scene")
-                    .setAttribute("visible", "true");
-                document
-                    .getElementById("fail_scene_button")
-                    .setAttribute("class", "clickable");
-                document
-                    .getElementById("cursor")
-                    .setAttribute("visible", "true");
+                document.getElementById("rig").object3D.position.set(0, 1.6, 0);
+                document.getElementById("Main Mall Manager").setAttribute("main-mall-manager", "false");
 
-                document
-                    .getElementById("rig")
-                    .setAttribute("position", { x: 0, y: 1.6, z: 0 });
-                // document.getElementById('rig').setAttribute('rotation', {x: 0, y: 0, z: 1});
+                document.getElementById('Main Mall Manager').components['main-mall-manager'].switchToFailScene(); // need to use brackets for dash names
 
-                data.timeBank = 60000;
+                // document.getElementById("Game Scene").setAttribute("visible", "false");
+                // document.getElementById("timer_text").setAttribute("visible", "false");
+
+                // document.getElementById("Fail Scene").setAttribute("visible", "true");
+                // document.getElementById("fail_scene_button").setAttribute("class", "clickable");
+                // document.getElementById("cursor").setAttribute("visible", "true");
+
+                // document.getElementById("rig").setAttribute("position", { x: 0, y: 1.6, z: 0 });
             }
         }
     }

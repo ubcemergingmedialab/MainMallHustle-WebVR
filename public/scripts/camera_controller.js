@@ -10,5 +10,5 @@ AFRAME.registerComponent('camera-controller', {
             // console.log("sphere's current position: " + updatedPosition);
             document.getElementById('rig').setAttribute('position', {x: updatedPlayerPosition.x, y: document.getElementById('rig').getAttribute('position').y, z: updatedPlayerPosition.z});
         }
-    }
+    },
 });

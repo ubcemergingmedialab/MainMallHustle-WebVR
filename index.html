@@ -14,8 +14,6 @@
   <script src="public/scripts/timer.js"></script>
   <script src="public/scripts/camera_controller.js"></script>
   <script src="public/scripts/player_controller.js"></script>
-  <script src="public/scripts/obstacle_collision_listener.js"></script>
-  <script src="public/scripts/collectible_collision_listener.js"></script>
   <script src="public/scripts/resize.js"></script>
 </head>
 
@@ -67,14 +65,6 @@
       <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
 
-    <!-- <a-entity id="rig" position="0 0 0">
-      <a-camera id="camera" active="true" position="0 1.6 0" user-height="0"> 
-        <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
-          <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
-        </a-entity>
-        <a-entity id="timer_text" position="0 0.75 -1.5" text="value:Hello; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="7 7 7" timer></a-entity>
-      </a-camera> 
-    </a-entity> -->
     <a-entity id="rig" position="0 1.6 0" movement-controls camera-controller>
       <a-entity id="camera" camera="active:true; user-height:0" position="0 0 0" look-controls wasd-controls> 
         <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
@@ -100,17 +90,32 @@
       <a-light type="ambient" color="#FFF"></a-light>
       <a-plane position="0 -0.025 0" color="#3A3730" height="3500" width="900" rotation="-90 0 0" static-body physics="friction: 0"></a-plane></a-plane>
       <!-- <a-entity id="environment" position="0 0.93 0" rotation="0 90 0" obj-model="obj:#environment-obj; mtl:#environment-mtl" resize="axis:z; value:1250"></a-entity> -->
-      <a-sphere id="sphere" radius="0.8" position="0 0 0" visible="false" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95" player-controller aabb-collider="objects: .collectible, .obstacle"></a-sphere>
+      <a-sphere id="sphere" radius="0.8" position="0 0 0" visible="false" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95; sphereRadius: NaN" player-controller aabb-collider="objects: .collectible, .obstacle"></a-sphere>
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
-      <a-box id="leftwall" visible="false" position="-15.5 1 -550" width="1" height="2" depth ="1140" material="alphatest: 0.5"></a-box>
-      <a-box id="rightwall" visible="false" position="15.5 1 -550" width="1" height="2" depth ="1140"></a-box> <!-- should be 30 m apart, more or less: -16 1 -600 with dimension of 1 2 1200 -->
-      <a-box id="backwall" position="0 1 20.5" width="30" height="2" depth="1"></a-box> <!-- should be 40m behind player; 0 1 40; width="30" height="2" depth="1" -->
+      <a-box id="leftwall" visible="false" position="-15.5 1 -550" width="1" height="2" depth ="1140" static-body material="alphatest: 0.5"></a-box>
+      <a-box id="rightwall" static-body="sphereRadius: NaN" visible="false" position="15.5 1 -550" width="1" height="2" depth ="1140" static-body></a-box> <!-- should be 30 m apart, more or less: -16 1 -600 with dimension of 1 2 1200 -->
+      <a-box id="backwall" static-body="sphereRadius: NaN" visible="false" position="0 1 20.5" width="30" height="2" depth="1" static-body></a-box> <!-- should be 40m behind player; 0 1 40; width="30" height="2" depth="1" -->
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
       <a-entity id="mainmall" position="-56.01413 -1 -543.82853" rotation="0 90 0" obj-model="obj:#mainmall-obj; mtl:#mainmall-mtl" resize="axis:z; value:1200"></a-entity>
       <a-entity id="mainmallosm" position="-56.63483 -28.8 -545.11442" rotation="0 90 0" obj-model="obj:#mainmallosm-obj; mtl:#mainmallosm-mtl" resize="axis:z; value:1600"></a-entity>
       <a-entity id="clouds" rotation="0 90 0" position="-213.9339 259.70646 -547.47457" obj-model="obj:#clouds-obj; mtl:#clouds-mtl" resize="axis:z; value:200"></a-entity>
       <a-entity id="trees" position="-10.02559 12 -533.47428" rotation="0 90 0" obj-model="obj:#trees-obj; mtl:#trees-mtl" resize="axis:z; value:1100"></a-entity>
-      <a-entity id="cones" position="0.7884 0.5 -158.29163" obj-model="obj:#cones-obj; mtl:#cones-mtl" resize="axis:z; value:20"></a-entity>
+        <a-cylinder id="tree_collider1" static-body="sphereRadius: NaN" visible="false" position="-13.6 0.5 -214" radius="1.8" static-body></a-cylinder>
+        <a-cylinder id="tree_collider2" visible="false" position="14.5 0.5 -214.4" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider3" visible="false" position="-14.3 0.5 -230.7" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider4" visible="false" position="14.6 0.5 -230.97" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider5" visible="false" position="-14.2 0.5 -269.77" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider6" visible="false" position="14.7 0.5 -269.55" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider7" visible="false" position="-15 0.5 -286.1" static-body></a-cylinder>
+        <a-cylinder id="tree_collider8" visible="false" position="14.25 0.5 -286.7" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider9" visible="false" position="-11 0.5 -854.8" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider10" visible="false" position="-10.9 0.5 -892.5" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider11" visible="false" position="-10.9 0.5 -930.1" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider12" visible="false" position="-11.3 0.5 -958.2" static-body="sphereRadius: NaN"></a-cylinder>
+        <a-cylinder id="tree_collider13" visible="false" position="-11.3 0.5 -1002.3" static-body="sphereRadius: NaN"></a-cylinder>
+      <a-entity id="cones" position="0.7884 0.5 -158.29163" obj-model="obj:#cones-obj; mtl:#cones-mtl" resize="axis:z; value:20">
+        <a-sphere radius="10" visible="false" static-body></a-sphere>
+      </a-entity>
       <!-- <a-entity id="grass" position="-35.69173 -39.56 -630.82728" rotation="0 90 0" obj-model="obj:#grass-obj; mtl:#grass-mtl" resize="axis:z; value: 1200"></a-entity>-->
       <a-entity id="boba" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.897 1 -40.698" scale="40 40 40"></a-entity>
       <a-entity id="boba2" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.96924 1 -46" scale="40 40 40"></a-entity>
@@ -250,10 +255,10 @@
         <a-animation attribute="position" from="-5.96851 1 -748.24991" to="-5.96851 1 -806.24991" direction="alternate" repeat="indefinite" dur="12500"></a-animation>
       </a-image>
       <a-image id="student35" static-body="sphereRadius: NaN" class="obstacle" position="11.8915 1 -803.433" width="1" height="2" src="#person8" static-body>
-        <a-animation attribute="position" from="11.8915 1 -803.433" to="11.8915 1 -745.433" direction="alternate" repeat="indefinite" dur="13800"></a-animation>
+        <a-animation attribute="position" from="11.8915 1 -803.433" to="11.8915 1 -745.433" direction="alternate" repeat="indefinite" dur="16000"></a-animation>
       </a-image>
       <a-image id="student36" static-body="sphereRadius: NaN" class="obstacle" position="9.72076 1 -754.04473" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="9.72076 1 -754.04473" to="-9.72076 1 -754.04473" direction="alternate" repeat="indefinite" dur="6100"></a-animation>
+        <a-animation attribute="position" from="15.72076 1 -754.04473" to="-15.72076 1 -754.04473" direction="alternate" repeat="indefinite" dur="9100"></a-animation>
       </a-image>
       <a-image id="student37" static-body="sphereRadius: NaN" class="obstacle" position="-8.58113 1 -772.79616" width="1" height="2" src="#person1" static-body>
         <a-animation attribute="position" from="-8.58113 1 -772.79616" to="8.58113 1 -772.79616" direction="alternate" repeat="indefinite" dur="5700"></a-animation>
@@ -286,7 +291,7 @@
         <a-animation attribute="position" from="9.0096 1 -878.77864" to="-9.0096 1 -878.77864" direction="alternate" repeat="indefinite" dur="6700"></a-animation>
       </a-image>
       <a-image id="student47" static-body="sphereRadius: NaN" class="obstacle" position="-6.39959 1 -896.11567" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="-6.39959 1 -896.11567" to="6.39959 1 -896.11567" direction="alternate" repeat="indefinite" dur="6800"></a-animation>
+        <a-animation attribute="position" from="-16.39959 1 -896.11567" to="16.39959 1 -896.11567" direction="alternate" repeat="indefinite" dur="9800"></a-animation>
       </a-image>
       <a-image id="student48" static-body="sphereRadius: NaN" class="obstacle" position="-5.96851 1 -903.34159" width="1" height="2" src="#person3" static-body>
         <a-animation attribute="position" from="-5.96851 1 -903.34159" to="-5.96851 1 -953.34159" direction="alternate" repeat="indefinite" dur="11100"></a-animation>
@@ -295,7 +300,7 @@
         <a-animation attribute="position" from="12.17293 1 -951.44414" to="12.17293 1 -901.44414" direction="alternate" repeat="indefinite" dur="12000"></a-animation>
       </a-image>
       <a-image id="student50" static-body="sphereRadius: NaN" class="obstacle" position="-6.63238 1 -913.01559" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="-6.63238 1 -913.01559" to="6.63238 1 -913.01559" direction="alternate" repeat="indefinite" dur="6700"></a-animation>
+        <a-animation attribute="position" from="-6.53238 1 -913.01559" to="6.63238 1 -913.01559" direction="alternate" repeat="indefinite" dur="6700"></a-animation>
       </a-image>
       <a-image id="student51" static-body="sphereRadius: NaN" class="obstacle" position="10.20209 1 -930.72756" width="1" height="2" src="#person6" static-body>
         <a-animation attribute="position" from="10.20209 1 -930.72756" to="-10.20209 1 -930.72756" direction="alternate" repeat="indefinite" dur="6400"></a-animation>
@@ -307,7 +312,7 @@
         <a-animation attribute="position" from="-5.96851 1 -960.75856" to="-5.96851 1 -1020.75856" direction="alternate" repeat="indefinite" dur="12100"></a-animation>
       </a-image>
       <a-image id="student54" static-body="sphereRadius: NaN" class="obstacle" position="12.17293 1 -1024.87544" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="12.17293 1 -1024.87544" to="12.17293 1 -964.87544" direction="alternate" repeat="indefinite" dur="12200"></a-animation>
+        <a-animation attribute="position" from="15.17293 1 -1024.87544" to="15.17293 1 -964.87544" direction="alternate" repeat="indefinite" dur="12200"></a-animation>
       </a-image>
       <a-image id="student55" static-body="sphereRadius: NaN" class="obstacle" position="-7.14899 1 -969.02471" width="1" height="2" src="#person1" static-body>
         <a-animation attribute="position" from="-7.14899 1 -969.02471" to="8.14899 1 -969.02471" direction="alternate" repeat="indefinite" dur="6300"></a-animation>
