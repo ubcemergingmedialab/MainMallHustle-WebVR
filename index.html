@@ -65,32 +65,33 @@
       <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
 
-    <a-entity id="rig" position="0 1.6 0" movement-controls camera-controller>
-      <a-entity id="camera" camera="active:true; user-height:0" position="0 0 0" look-controls wasd-controls> 
+    <a-entity id="rig" position="0 1.6 2505" movement-controls> <!--camera-controller-->
+      <a-entity id="camera" camera="active:true; user-height:0" position="0 0 0" look-controls wasd-controls>
         <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
           <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
         </a-entity>
-        <a-entity id="timer_text" position="0 0.25 -0.5" text="value:Press trigger when you're ready; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" timer></a-entity>
-        <a-entity id="minus_text" position="0.15 0.25 -0.5" text="value:-10; color:#FF0000; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2"></a-entity>
-        <a-entity id="plus_text" position="0.15 0.25 -0.5" text="value:+5; color:#00FF00; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2"></a-entity>
-      </a-entity> 
+        <a-entity id="timer_text" position="0 0.25 -0.5" text="value:; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2"></a-entity>
+        <a-entity id="minus_text" position="0.15 0.25 -0.5" text="value:-10; color:#FF0000; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" visible="false"></a-entity>
+        <a-entity id="plus_text" position="0.15 0.25 -0.5" text="value:+5; color:#00FF00; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" visible="false"></a-entity>
+      </a-entity>
     </a-entity>
 
-    <a-entity id="Start Scene">
-      <a-sky rotation="0 -120 0" src="#start_scene_background"></a-sky>
+    <a-entity id="start_area" position="0 0 2505">
+      <a-sky rotation="0 -120 0" src="#start_scene_background" radius="10"></a-sky>
       <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
-      <a-entity id="start_scene_button" class="clickable" position="0 1.83 -1.5" geometry="primitive: box; width: 0.72; height: 0.21; depth: 0.01" material="opacity: 0;" start-scene-cursor-listener></a-entity>
-      <!--<a-box id="start_scene_button" position = "0 0.23 -1.5" width="0.72" height="0.21" depth="0.01" material="color: blue;" start-scene-cursor-listener></a-box>-->
+      <a-entity id="start_scene_button" class="clickable" position="0 1.83 -1.5"
+        geometry="primitive: box; width: 0.72; height: 0.21; depth: 0.01" material="opacity: 0;" start-scene-cursor-listener>
+      </a-entity>
       <a-image position="-1.5 1.6 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
       <a-image position="1.5 1.6 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
     </a-entity>
 
-    <a-entity id="Game Scene">
-      <a-sky src="#sky"></a-sky>
+    <a-entity id="game_area" position="0 0 0">
+      <a-sky rotation="0 -120 0" src="#sky" radius="2500"></a-sky>
       <a-light type="ambient" color="#FFF"></a-light>
       <a-plane position="0 -0.025 0" color="#3A3730" height="3500" width="900" rotation="-90 0 0" static-body physics="friction: 0"></a-plane></a-plane>
       <!-- <a-entity id="environment" position="0 0.93 0" rotation="0 90 0" obj-model="obj:#environment-obj; mtl:#environment-mtl" resize="axis:z; value:1250"></a-entity> -->
-      <a-sphere id="sphere" radius="0.8" position="0 0 0" visible="false" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95; sphereRadius: NaN" player-controller aabb-collider="objects: .collectible, .obstacle"></a-sphere>
+      <a-sphere id="sphere" radius="0.8" position="0 0 0" visible="false" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95; sphereRadius: NaN" aabb-collider="objects: .collectible, .obstacle"></a-sphere> <!--player-controller-->
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
       <a-box id="leftwall" visible="false" position="-15.5 1 -550" width="1" height="2" depth ="1140" static-body material="alphatest: 0.5"></a-box>
       <a-box id="rightwall" static-body="sphereRadius: NaN" visible="false" position="15.5 1 -550" width="1" height="2" depth ="1140" static-body></a-box> <!-- should be 30 m apart, more or less: -16 1 -600 with dimension of 1 2 1200 -->
@@ -146,7 +147,7 @@
       <a-entity id="boba15" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-2.64151 1 -814.95793" scale="40 40 40"></a-entity>
       <a-entity id="coffee6" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-7.69003 1 -839.53906" scale=".015 .015 .015"></a-entity>
       <a-entity id="coffee7" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="5.49274 1 -874.94237" scale=".015 .015 .015"></a-entity>
-      <a-entity id="timbit8" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="20.18141 1 -900.16413" scale=".07 .07 .07"></a-entity>
+      <a-entity id="timbit8" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="13.423 1 -900.16413" scale=".07 .07 .07"></a-entity>
       <a-entity id="coffee8" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="4.06745 1 -921.25436" scale=".015 .015 .015"></a-entity>
       <a-entity id="coffee9" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-3.40489 1 -960.0741" scale=".015 .015 .015"></a-entity>
       <a-entity id="boba16" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="5.64682 1 -1002.78768" scale="40 40 40"></a-entity>
@@ -334,21 +335,23 @@
       </a-image>
     </a-entity>
 
-    <a-entity id="Fail Scene">
-      <a-sky color="#B18840"></a-sky>
+    <a-entity id="fail_area" position="-5 0 -2505">
+      <a-sky color="#B18840" radius="10"></a-sky>
       <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
-      <a-entity id="fail_scene_button" class="clickable" position="0 0.78 -1.5" geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="opacity: 0;" fail-scene-cursor-listener></a-entity>
-      <!--<a-box id="fail_scene_button" position = "-0.25 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" fail-scene-cursor-listener></a-box>-->
+      <a-entity id="fail_scene_button" class="clickable" position="0 0.78 -1.5"
+        geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="opacity: 0;" fail-scene-cursor-listener>
+      </a-entity>
     </a-entity>
 
-    <a-entity id="End Scene">
-      <a-sky rotation="0.5 -80 0" src="#end_scene_background"></a-sky>
+    <a-entity id="end_area" position="5 0 -2505">
+      <a-sky rotation="0.5 -80 0" src="#end_scene_background" radius="10"></a-sky>
       <a-image position="0 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
-      <a-entity id="end_scene_button" class="clickable" position="0 -0.82 -1.5" geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="color: blue;" end-scene-cursor-listener></a-entity>
-      <!--<a-box id="end_scene_button" position = "0.25 -0.82 -1.5" width="0.65" height="0.13" depth="0.01" material="color: blue" end-scene-cursor-listener></a-box>-->
+      <a-entity id="end_scene_button" class="clickable" position="0 -0.82 -1.5"
+        geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="color: blue;" end-scene-cursor-listener>
+      </a-entity>
     </a-entity>
 
-    <a-entity id="Main Mall Manager" main-mall-manager></a-entity>
+    <a-entity id="main_mall_manager" main-mall-manager></a-entity>
   </a-scene>
 </body>
 
