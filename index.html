@@ -7,13 +7,13 @@
   <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
   <!--<script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>-->
+  <script src="public/scripts/main_mall_manager.js"></script>
+  <script src="public/scripts/timer.js"></script>
+  <script src="public/scripts/player_controller.js"></script>
+  <script src="public/scripts/camera_controller.js"></script>
   <script src="public/scripts/start_scene_cursor_listener.js"></script>
   <script src="public/scripts/fail_scene_cursor_listener.js"></script>
   <script src="public/scripts/end_scene_cursor_listener.js"></script>
-  <script src="public/scripts/main_mall_manager.js"></script>
-  <script src="public/scripts/timer.js"></script>
-  <script src="public/scripts/camera_controller.js"></script>
-  <script src="public/scripts/player_controller.js"></script>
   <script src="public/scripts/resize.js"></script>
 </head>
 
@@ -41,6 +41,8 @@
       <a-asset-item id="trees-mtl" src="public/models/Plants and Trees.mtl"></a-asset-item>
       <a-asset-item id="cones-obj" src="public/models/Cones.obj"></a-asset-item>
       <a-asset-item id="cones-mtl" src="public/models/Cones.mtl"></a-asset-item>
+      <a-asset-item id="fountain-obj" src="public/buildings/fountain.obj"></a-asset-item>
+      <a-asset-item id="fountain-mtl" src="public/buildings/fountain.mtl"></a-asset-item>
       <a-asset-item id="boba" position="10.24264 1 -38.81025" src="public/models/boba.obj"></a-asset-item>
       <a-asset-item id="boba-mtl" src="public/models/boba.mtl"></a-asset-item>
       <a-asset-item id="coffee" src="public/models/coffee.obj"></a-asset-item>
@@ -65,23 +67,21 @@
       <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
 
-    <a-entity id="rig" position="0 1.6 2505" movement-controls> <!--camera-controller-->
+    <a-entity id="rig" position="0 1.6 2510" camera-controller movement-controls> <!--camera-controller-->
       <a-entity id="camera" camera="active:true; user-height:0" position="0 0 0" look-controls wasd-controls>
         <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
           <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
         </a-entity>
-        <a-entity id="timer_text" position="0 0.25 -0.5" text="value:; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2"></a-entity>
+        <a-entity id="timer_text" position="0 0.25 -0.5" text="value:; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" timer></a-entity>
         <a-entity id="minus_text" position="0.15 0.25 -0.5" text="value:-10; color:#FF0000; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" visible="false"></a-entity>
         <a-entity id="plus_text" position="0.15 0.25 -0.5" text="value:+5; color:#00FF00; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" visible="false"></a-entity>
       </a-entity>
     </a-entity>
 
-    <a-entity id="start_area" position="0 0 2505">
+    <a-entity id="start_area" position="0 0 2510">
       <a-sky rotation="0 -120 0" src="#start_scene_background" radius="10"></a-sky>
       <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
-      <a-entity id="start_scene_button" class="clickable" position="0 1.83 -1.5"
-        geometry="primitive: box; width: 0.72; height: 0.21; depth: 0.01" material="opacity: 0;" start-scene-cursor-listener>
-      </a-entity>
+      <a-entity id="start_scene_button" class="clickable" position="0 1.83 -1.5" geometry="primitive: box; width: 0.72; height: 0.21; depth: 0.01" material="opacity: 0;" start-scene-cursor-listener></a-entity>
       <a-image position="-1.5 1.6 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
       <a-image position="1.5 1.6 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
     </a-entity>
@@ -91,14 +91,15 @@
       <a-light type="ambient" color="#FFF"></a-light>
       <a-plane position="0 -0.025 0" color="#3A3730" height="3500" width="900" rotation="-90 0 0" static-body physics="friction: 0"></a-plane></a-plane>
       <!-- <a-entity id="environment" position="0 0.93 0" rotation="0 90 0" obj-model="obj:#environment-obj; mtl:#environment-mtl" resize="axis:z; value:1250"></a-entity> -->
-      <a-sphere id="sphere" radius="0.8" position="0 0 0" visible="false" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95; sphereRadius: NaN" aabb-collider="objects: .collectible, .obstacle"></a-sphere> <!--player-controller-->
+      <a-sphere id="sphere" radius="0.8" position="0 0 0" visible="false" dynamic-body="mass: 70; linearDamping: 0.95; angularDamping: 0.95; sphereRadius: NaN" player-controller aabb-collider="objects: .collectible, .obstacle, .goal"></a-sphere> <!--player-controller-->
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
-      <a-box id="leftwall" visible="false" position="-15.5 1 -550" width="1" height="2" depth ="1140" static-body material="alphatest: 0.5"></a-box>
+      <a-box id="leftwall" static-body="sphereRadius: NaN" visible="false" position="-15.5 1 -550" width="1" height="2" depth ="1140" static-body material="alphatest: 0.5"></a-box>
       <a-box id="rightwall" static-body="sphereRadius: NaN" visible="false" position="15.5 1 -550" width="1" height="2" depth ="1140" static-body></a-box> <!-- should be 30 m apart, more or less: -16 1 -600 with dimension of 1 2 1200 -->
       <a-box id="backwall" static-body="sphereRadius: NaN" visible="false" position="0 1 20.5" width="30" height="2" depth="1" static-body></a-box> <!-- should be 40m behind player; 0 1 40; width="30" height="2" depth="1" -->
       <!-- <a-entity id="UBC-buildings" obj-model="obj: #building; mtl:#building-mtl " position="-7.190 -6.25 -90" rotation="0 90 180" scale="-338.04312 -338.044 388"></a-entity> -->
       <a-entity id="mainmall" position="-56.01413 -1 -543.82853" rotation="0 90 0" obj-model="obj:#mainmall-obj; mtl:#mainmall-mtl" resize="axis:z; value:1200"></a-entity>
       <a-entity id="mainmallosm" position="-56.63483 -28.8 -545.11442" rotation="0 90 0" obj-model="obj:#mainmallosm-obj; mtl:#mainmallosm-mtl" resize="axis:z; value:1600"></a-entity>
+        <a-box id="goal" class="goal" transparent="true" opacity="0" position="0 0.5 -1046" width="30" height="1" depth="1"></a-box> 
       <a-entity id="clouds" rotation="0 90 0" position="-213.9339 259.70646 -547.47457" obj-model="obj:#clouds-obj; mtl:#clouds-mtl" resize="axis:z; value:200"></a-entity>
       <a-entity id="trees" position="-10.02559 12 -533.47428" rotation="0 90 0" obj-model="obj:#trees-obj; mtl:#trees-mtl" resize="axis:z; value:1100"></a-entity>
         <a-cylinder id="tree_collider1" static-body="sphereRadius: NaN" visible="false" position="-13.6 0.5 -214" radius="1.8" static-body></a-cylinder>
@@ -117,42 +118,46 @@
       <a-entity id="cones" position="0.7884 0.5 -158.29163" obj-model="obj:#cones-obj; mtl:#cones-mtl" resize="axis:z; value:20">
         <a-sphere radius="10" visible="false" static-body></a-sphere>
       </a-entity>
+      <a-entity id="fountain" position="2.7929 0.5 -510.21989" obj-model="obj: #fountain-obj; mtl: #fountain-mtl" resize="axis:z; value: 20"></a-entity>
+        <a-sphere position="2.7929 0.5 -510.21989" radius="10" visible="false" static-body></a-sphere>
       <!-- <a-entity id="grass" position="-35.69173 -39.56 -630.82728" rotation="0 90 0" obj-model="obj:#grass-obj; mtl:#grass-mtl" resize="axis:z; value: 1200"></a-entity>-->
-      <a-entity id="boba" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.897 1 -40.698" scale="40 40 40"></a-entity>
-      <a-entity id="boba2" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.96924 1 -46" scale="40 40 40"></a-entity>
-      <a-entity id="boba3" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.44013 1 -71.83212" scale="40 40 40"></a-entity>
-      <a-entity id="boba4" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.50889 1 -84.2376" scale="40 40 40"></a-entity>
-      <a-entity id="boba5" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-9.69159 1 -145.54101" scale="40 40 40"></a-entity>
-      <a-entity id="boba6" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.141 1 -131.24544" scale="40 40 40"></a-entity>
-      <a-entity id="boba7" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-8.46094 1 -206.3539" scale="40 40 40"></a-entity>
-      <a-entity id="boba8" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="11.36187 1 -206.29396" scale="40 40 40"></a-entity>
-      <a-entity id="boba9" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="19.73371 1 -206.26422" scale="40 40 40"></a-entity>
-      <a-entity id="timbit" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-8.54219 1 -217.34776" scale=".07 .07 .07"></a-entity>
-      <a-entity id="timbit2" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="3.49223 1 -220.36467" scale=".07 .07 .07"></a-entity>
-      <a-entity id="timbit3" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-9.79319 1 -360.5141" scale=".07 .07 .07"></a-entity>
-      <a-entity id="timbit4" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="11.35617 1 -378.26444" scale=".07 .07 .07"></a-entity>
-      <a-entity id="coffee" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-4.857 1 -391.021" scale=".015 .015 .015"></a-entity>
-      <a-entity id="coffee2" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="14.40212 1 -416.00392" scale=".015 .015 .015"></a-entity>
-      <a-entity id="timbit5" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-11.0761 1 -497.20786" scale=".07 .07 .07"></a-entity>
-      <a-entity id="boba10" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="4.39878 1 -523.32038" scale="40 40 40"></a-entity>
-      <a-entity id="coffee3" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-7.03049 1 -561.18925" scale=".015 .015 .015"></a-entity>
-      <a-entity id="coffee4" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="12.29166 1 -585.50149" scale=".015 .015 .015"></a-entity>
-      <a-entity id="boba11" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-1.14109 1 -663.17811" scale="40 40 40"></a-entity>
-      <a-entity id="boba12" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="2.9448 1 -680.83044" scale="40 40 40"></a-entity>
-      <a-entity id="boba13" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-3.9176 1 -700.54644" scale="40 40 40"></a-entity>
-      <a-entity id="boba14" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="8.95748 1 -700.08785" scale="40 40 40"></a-entity>
-      <a-entity id="coffee5" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="20.03946 1 -746.51863" scale=".015 .015 .015"></a-entity>
-      <a-entity id="timbit6" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-7.38301 1 -747.59825" scale=".07 .07 .07"></a-entity>
-      <a-entity id="timbit7" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -756.67248" scale=".07 .07 .07"></a-entity>
-      <a-entity id="boba15" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-2.64151 1 -814.95793" scale="40 40 40"></a-entity>
-      <a-entity id="coffee6" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-7.69003 1 -839.53906" scale=".015 .015 .015"></a-entity>
-      <a-entity id="coffee7" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="5.49274 1 -874.94237" scale=".015 .015 .015"></a-entity>
-      <a-entity id="timbit8" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="13.423 1 -900.16413" scale=".07 .07 .07"></a-entity>
-      <a-entity id="coffee8" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="4.06745 1 -921.25436" scale=".015 .015 .015"></a-entity>
-      <a-entity id="coffee9" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-3.40489 1 -960.0741" scale=".015 .015 .015"></a-entity>
-      <a-entity id="boba16" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="5.64682 1 -1002.78768" scale="40 40 40"></a-entity>
-      <a-entity id="coffee10" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-6.16271 1 -1028.97361" scale=".015 .015 .015"></a-entity>
-      <!--<a-sphere sphere-collider='' position="3 0.5 -3" radius="0.25" color="#EF2D5E"></a-sphere>-->
+      <a-entity id="collectibles">
+        <a-entity id="boba" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.897 1 -40.698" scale="40 40 40"></a-entity>
+        <a-entity id="boba2" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.96924 1 -46" scale="40 40 40"></a-entity>
+        <a-entity id="boba3" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.44013 1 -71.83212" scale="40 40 40"></a-entity>
+        <a-entity id="boba4" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.50889 1 -84.2376" scale="40 40 40"></a-entity>
+        <a-entity id="boba5" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-9.69159 1 -145.54101" scale="40 40 40"></a-entity>
+        <a-entity id="boba6" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.141 1 -131.24544" scale="40 40 40"></a-entity>
+        <a-entity id="boba7" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-8.46094 1 -206.3539" scale="40 40 40"></a-entity>
+        <a-entity id="boba8" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="11.36187 1 -206.29396" scale="40 40 40"></a-entity>
+        <a-entity id="boba9" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="19.73371 1 -206.26422" scale="40 40 40"></a-entity>
+        <a-entity id="timbit" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-8.54219 1 -217.34776" scale=".07 .07 .07"></a-entity>
+        <a-entity id="timbit2" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="3.49223 1 -220.36467" scale=".07 .07 .07"></a-entity>
+        <a-entity id="timbit3" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-9.79319 1 -360.5141" scale=".07 .07 .07"></a-entity>
+        <a-entity id="timbit4" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="11.35617 1 -378.26444" scale=".07 .07 .07"></a-entity>
+        <a-entity id="coffee" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-4.857 1 -391.021" scale=".015 .015 .015"></a-entity>
+        <a-entity id="coffee2" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="14.40212 1 -416.00392" scale=".015 .015 .015"></a-entity>
+        <a-entity id="timbit5" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-11.0761 1 -497.20786" scale=".07 .07 .07"></a-entity>
+        <a-entity id="boba10" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="4.39878 1 -523.32038" scale="40 40 40"></a-entity>
+        <a-entity id="coffee3" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-7.03049 1 -561.18925" scale=".015 .015 .015"></a-entity>
+        <a-entity id="coffee4" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="12.29166 1 -585.50149" scale=".015 .015 .015"></a-entity>
+        <a-entity id="boba11" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-1.14109 1 -663.17811" scale="40 40 40"></a-entity>
+        <a-entity id="boba12" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="2.9448 1 -680.83044" scale="40 40 40"></a-entity>
+        <a-entity id="boba13" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-3.9176 1 -700.54644" scale="40 40 40"></a-entity>
+        <a-entity id="boba14" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="8.95748 1 -700.08785" scale="40 40 40"></a-entity>
+        <a-entity id="coffee5" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="14.03946 1 -746.51863" scale=".015 .015 .015"></a-entity>
+        <a-entity id="timbit6" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-7.38301 1 -747.59825" scale=".07 .07 .07"></a-entity>
+        <a-entity id="timbit7" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="0 1 -756.67248" scale=".07 .07 .07"></a-entity>
+        <a-entity id="boba15" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-2.64151 1 -814.95793" scale="40 40 40"></a-entity>
+        <a-entity id="coffee6" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-7.69003 1 -839.53906" scale=".015 .015 .015"></a-entity>
+        <a-entity id="coffee7" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="5.49274 1 -874.94237" scale=".015 .015 .015"></a-entity>
+        <a-entity id="timbit8" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="13.423 1 -900.16413" scale=".07 .07 .07"></a-entity>
+        <a-entity id="coffee8" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="4.06745 1 -921.25436" scale=".015 .015 .015"></a-entity>
+        <a-entity id="coffee9" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-3.40489 1 -960.0741" scale=".015 .015 .015"></a-entity>
+        <a-entity id="boba16" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="5.64682 1 -1002.78768" scale="40 40 40"></a-entity>
+        <a-entity id="coffee10" class="collectible" obj-model="obj: #coffee; mtl: #coffee-mtl" position="-6.16271 1 -1028.97361" scale=".015 .015 .015"></a-entity>
+      </a-entity>
+        <!--<a-sphere sphere-collider='' position="3 0.5 -3" radius="0.25" color="#EF2D5E"></a-sphere>-->
       <a-image id="student" static-body="sphereRadius: NaN" class="obstacle" position="9.16 1 -30.90" width="1" height="2" src="#person1" static-body>
         <a-animation attribute="position" from="9.16 1 -30.90" to="9.16 1 -83.209" direction="alternate" repeat="indefinite" dur="15500"></a-animation>
       </a-image>
@@ -335,7 +340,7 @@
       </a-image>
     </a-entity>
 
-    <a-entity id="fail_area" position="-5 0 -2505">
+    <a-entity id="fail_area" position="-10 0 -2510">
       <a-sky color="#B18840" radius="10"></a-sky>
       <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
       <a-entity id="fail_scene_button" class="clickable" position="0 0.78 -1.5"
@@ -343,11 +348,11 @@
       </a-entity>
     </a-entity>
 
-    <a-entity id="end_area" position="5 0 -2505">
+    <a-entity id="end_area" position="10 0 -2510">
       <a-sky rotation="0.5 -80 0" src="#end_scene_background" radius="10"></a-sky>
-      <a-image position="0 0 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
-      <a-entity id="end_scene_button" class="clickable" position="0 -0.82 -1.5"
-        geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="color: blue;" end-scene-cursor-listener>
+      <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
+      <a-entity id="end_scene_button" class="clickable" position="0 0.78 -1.5"
+        geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="opacity: 0;" end-scene-cursor-listener>
       </a-entity>
     </a-entity>
 

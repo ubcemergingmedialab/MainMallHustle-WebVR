@@ -5,8 +5,6 @@ AFRAME.registerComponent('player-controller', {
         penaltySpeed: {type: 'number', default: -10},
         factor: {type: 'number', default: 5.5},
         flag: {type: 'boolean', default: false},
-        // oldPlayerPositionX: {type: 'number', default: 0},
-        // oldPlayerPositionZ: {type: 'number', default: 0},
     },
     init: function () {
         // For player movement
@@ -21,7 +19,7 @@ AFRAME.registerComponent('player-controller', {
         var el = this.el;
         // For collision detection
         el.addEventListener('collide', (e) => {
-            if (document.getElementById('Game Scene').getAttribute('visible') && e.detail.body.el.getAttribute('class') == 'obstacle') {
+            if (e.detail.body.el.getAttribute('class') == 'obstacle') { //document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isPlayerReady &&
                 // Get camera direction
                 var camera = document.querySelector('[camera]').object3D;
                 var cameraAngle = camera.getWorldDirection();
@@ -41,7 +39,7 @@ AFRAME.registerComponent('player-controller', {
         });
         el.addEventListener('hitclosest', () => {
             var targetEntity = el.components['aabb-collider'].closestIntersectedEl; 
-            if (document.getElementById('Game Scene').getAttribute('visible') && targetEntity.getAttribute('class') == 'collectible' && targetEntity.getAttribute('visible')) {
+            if (targetEntity.getAttribute('class') == 'collectible' && targetEntity.getAttribute('visible')) { //document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isPlayerReady && 
                 // Get camera direction
                 var camera = document.querySelector('[camera]').object3D;
                 var cameraAngle = camera.getWorldDirection();
@@ -61,32 +59,41 @@ AFRAME.registerComponent('player-controller', {
                 setTimeout(function () {
                     document.getElementById('plus_text').setAttribute('visible', 'false');
                 }, 1000);
+            } else if (targetEntity.getAttribute("class") == "goal") {
+                document.getElementById("timer_text").setAttribute("timer", "timeBank: 600");
+                document.getElementById("timer_text").setAttribute("text", "value:");
+                // this.el.setAttribute('value', 'Press trigger when you\'re ready');
+                // document.getElementById("sphere").object3D.position.x = 5;
+                document.getElementById("sphere").removeAttribute("dynamic-body");
+                document.getElementById("sphere").object3D.position.set(0, 0, 0);
+                document.getElementById("sphere").setAttribute("dynamic-body", "mass: 70; linearDamping: 0.95; angularDamping: 0.95; sphereRadius: NaN");
+                // console.log(document.getElementById("sphere").getAttribute("position"));
+                // console.log(document.getElementById("sphere").getAttribute("position"));
+                var collectibles = document.getElementById("collectibles").children;
+                for (var i = 0; i < collectibles.length; i++) {
+                    var collectible = collectibles[i];
+                    collectible.setAttribute("visible", "true");
+                }
+
+                document.getElementById('main_mall_manager').components['main-mall-manager'].teleportToEndArea(); // need to use brackets for dash names
             }
         });
     },
     tick: function(time, timeDelta) {
         var data = this.data;
-        if (data.flag && document.getElementById('Game Scene').getAttribute('visible') && document.getElementById('Main Mall Manager').getAttribute('main-mall-manager').isPlayerReady) {
+        if (data.flag && document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isInGameArea) { //&& document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isPlayerReady
             // Get camera direction
             var camera = document.querySelector('[camera]').object3D;
             var cameraAngle = camera.getWorldDirection(); // Why is it completely in the opposite direction?
             // Apply impulse
             var sphere = document.getElementById('sphere');
+
             setTimeout(function () {
-                var impulse = { x: -data.speed * data.factor * cameraAngle.x, y: 0, z: -data.speed * data.factor * cameraAngle.z}; // maybe setup up a field later
+                var impulse = { x: -data.speed * data.factor * cameraAngle.x, y: 0, z: -data.speed * data.factor * cameraAngle.z }; // maybe setup up a field later
                 var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
                 sphere.body.applyImpulse(impulse, position);
             }, 25);
-            sphere.flushToDOM();
+            // sphere.flushToDOM();
         }
-        // var sphere = document.getElementById('sphere');
-        // var oldPlayerPositionVec3 = new CANNON.Vec3(data.oldPlayerPositionX, 0, data.oldPlayerPositionZ);
-        // var currentPlayerPositionVec3 = new CANNON.Vec3().copy(sphere.getAttribute('position'));
-        // var diffX = currentPlayerPositionVec3.x - oldPlayerPositionVec3.x;
-        // var diffZ = currentPlayerPositionVec3.z - oldPlayerPositionVec3.z;
-        // var displacement = Math.sqrt(diffX*diffX + diffZ*diffZ);
-        // console.log(displacement/(timeDelta/1000));
-        // data.oldPlayerPositionX = currentPlayerPositionVec3.x;
-        // data.oldPlayerPositionZ = currentPlayerPositionVec3.z;
     },
 });

@@ -4,7 +4,7 @@ AFRAME.registerComponent('camera-controller', {
         dashSpeed: {type: 'number', default: 20}
     },
     tick: function (time, timeDelta) {
-        if (document.getElementById('Game Scene').getAttribute('visible')) {
+        if (document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isInGameArea) {
             var updatedPlayerPosition = document.getElementById('sphere').getAttribute('position');
             // console.log(updatedPlayerPosition.x);
             // console.log("sphere's current position: " + updatedPosition);
