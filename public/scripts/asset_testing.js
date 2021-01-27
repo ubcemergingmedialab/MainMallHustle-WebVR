@@ -1,11 +1,12 @@
 const startTime = Date.now()
 
+console.log('starting timing')
 document.querySelectorAll("a-asset-item").forEach((element) => {
-    // console log asset loading time
-    element.addEventListener('loaded', () => {
+    element.addEventListener('model-loaded', () => {
         const name = element.getAttribute("id")
         const now = Date.now();
         var dt = now - startTime;
-        console.log(dt);
+        console.log(name + ":" + dt);
     })
 })
+    // console log asset loading tim
