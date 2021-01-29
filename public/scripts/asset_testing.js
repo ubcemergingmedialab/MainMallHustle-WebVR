@@ -6,6 +6,8 @@ THREE.DefaultLoadingManager.onProgress = function(url, itemsLoaded, itemsTotal) 
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
+
+    
     console.log('starting timing')
     const assets = document.querySelectorAll("a-asset-item")
     assets.forEach((element) => {
