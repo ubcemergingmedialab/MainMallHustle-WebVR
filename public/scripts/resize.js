@@ -11,7 +11,10 @@ AFRAME.registerComponent("resize", {
         }
     },
     init: function() {
+        var newEntity = document.createElement('a-entity')
         var el = this.el;
+        el.appendChild(newEntity)
+        el.setAttribute("obj-model", "obj: #coffee; mtl: #coffee-mtl")
         var data = this.data;
         var model = el.object3D;
         el.addEventListener("model-loaded", function(e) {
