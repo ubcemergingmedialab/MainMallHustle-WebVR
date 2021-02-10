@@ -16,6 +16,8 @@
   <script src="public/scripts/end_scene_cursor_listener.js"></script>
   <script src="public/scripts/resize.js"></script>
   <script src="public/scripts/asset_testing.js"></script>
+  <script src="public/scripts/lazy_loader.js"></script>
+  <script src="public/scripts/viewport-observer.js"></script>
 </head>
 
 <body>
@@ -85,7 +87,7 @@
       <a-image position="1.5 1.6 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
     </a-entity>
 
-    <a-entity id="game_area" position="0 0 0">
+    <a-entity lazy-loader="" id="game_area" position="0 0 0">
       <a-sky rotation="0 -120 0" src="#sky" radius="2500"></a-sky>
       <a-light type="ambient" color="#FFF"></a-light>
       <a-plane position="0 -0.025 0" color="#3A3730" height="3500" width="900" rotation="-90 0 0" static-body physics="friction: 0"></a-plane></a-plane>
@@ -121,13 +123,13 @@
         <a-sphere position="2.7929 0.5 -510.21989" radius="10" visible="false" static-body></a-sphere>
       <!-- <a-entity id="grass" position="-35.69173 -39.56 -630.82728" rotation="0 90 0" obj-model="obj:#grass-obj; mtl:#grass-mtl" resize="axis:z; value: 1200"></a-entity>-->
       <a-entity id="collectibles">
-        <a-entity id="boba" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.897 1 -40.698" scale="40 40 40"></a-entity>
-        <a-entity id="boba2" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.96924 1 -46" scale="40 40 40"></a-entity>
-        <a-entity id="boba3" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.44013 1 -71.83212" scale="40 40 40"></a-entity>
-        <a-entity id="boba4" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.50889 1 -84.2376" scale="40 40 40"></a-entity>
-        <a-entity id="boba5" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-9.69159 1 -145.54101" scale="40 40 40"></a-entity>
-        <a-entity id="boba6" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="9.141 1 -131.24544" scale="40 40 40"></a-entity>
-        <a-entity id="boba7" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="-8.46094 1 -206.3539" scale="40 40 40"></a-entity>
+        <a-entity id="boba" class="collectible" viewport-observer="" obj-model="obj: #boba; mtl: #boba-mtl" position="9.897 1 -40.698" scale="40 40 40"></a-entity>
+        <a-entity id="boba2" class="collectible" viewport-observer="" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.96924 1 -46" scale="40 40 40"></a-entity>
+        <a-entity id="boba3" class="collectible" viewport-observer="" obj-model="obj: #boba; mtl: #boba-mtl" position="9.44013 1 -71.83212" scale="40 40 40"></a-entity>
+        <a-entity id="boba4" class="collectible" viewport-observer="" obj-model="obj: #boba; mtl: #boba-mtl" position="-12.50889 1 -84.2376" scale="40 40 40"></a-entity>
+        <a-entity id="boba5" class="collectible" viewport-observer="" obj-model="obj: #boba; mtl: #boba-mtl" position="-9.69159 1 -145.54101" scale="40 40 40"></a-entity>
+        <a-entity id="boba6" class="collectible" viewport-observer="" obj-model="obj: #boba; mtl: #boba-mtl" position="9.141 1 -131.24544" scale="40 40 40"></a-entity>
+        <a-entity id="boba7" class="collectible" viewport-observer="" obj-model="obj: #boba; mtl: #boba-mtl" position="-8.46094 1 -206.3539" scale="40 40 40"></a-entity>
         <a-entity id="boba8" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="11.36187 1 -206.29396" scale="40 40 40"></a-entity>
         <a-entity id="boba9" class="collectible" obj-model="obj: #boba; mtl: #boba-mtl" position="19.73371 1 -206.26422" scale="40 40 40"></a-entity>
         <a-entity id="timbit" class="collectible" obj-model="obj: #donut; mtl: #donut-mtl" position="-8.54219 1 -217.34776" scale=".07 .07 .07"></a-entity>
