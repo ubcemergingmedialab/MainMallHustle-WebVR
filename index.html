@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <a-scene>
+  <a-scene background="color: #99ccff">
     <a-assets>
       <!--Start Scene Assets-->
       <img id="start_scene_background" src="public/materials/start_scene_background.png">
@@ -80,15 +80,15 @@
     </a-entity>
 
     <a-entity id="start_area" position="0 0 2510">
-      <a-sky rotation="0 -120 0" src="#start_scene_background" radius="10"></a-sky>
+      <!-- <a-sky rotation="0 -120 0" src="#start_scene_background" radius="10"></a-sky> -->
       <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#main_menu"></a-image>
       <a-entity id="start_scene_button" class="clickable" position="0 1.83 -1.5" geometry="primitive: box; width: 0.72; height: 0.21; depth: 0.01" material="opacity: 0;" start-scene-cursor-listener></a-entity>
       <a-image position="-1.5 1.6 -1" rotation="0 45 0" height="2" width="1.334123" src="#about_team_menu"></a-image>
       <a-image position="1.5 1.6 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
     </a-entity>
 
-    <a-entity lazy-loader="" id="game_area" position="0 0 0">
-      <a-sky rotation="0 -120 0" src="#sky" radius="2500"></a-sky>
+    <a-entity lazy-loader id="game_area" position="0 0 0">
+      <!-- <a-sky rotation="0 -120 0" src="#sky" radius="2500"></a-sky> -->
       <a-light type="ambient" color="#FFF"></a-light>
       <a-plane position="0 -0.025 0" color="#3A3730" height="3500" width="900" rotation="-90 0 0" static-body physics="friction: 0"></a-plane></a-plane>
       <!-- <a-entity id="environment" position="0 0.93 0" rotation="0 90 0" obj-model="obj:#environment-obj; mtl:#environment-mtl" resize="axis:z; value:1250"></a-entity> -->
@@ -342,7 +342,7 @@
     </a-entity>
 
     <a-entity id="fail_area" position="-10 0 -2510">
-      <a-sky color="#B18840" radius="10"></a-sky>
+      <!-- <a-sky color="#B18840" radius="10"></a-sky> -->
       <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#fail_menu"></a-image>
       <a-entity id="fail_scene_button" class="clickable" position="0 0.78 -1.5"
         geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="opacity: 0;" fail-scene-cursor-listener>
@@ -350,7 +350,7 @@
     </a-entity>
 
     <a-entity id="end_area" position="10 0 -2510">
-      <a-sky rotation="0.5 -80 0" src="#end_scene_background" radius="10"></a-sky>
+      <!-- <a-sky rotation="0.5 -80 0" src="#end_scene_background" radius="10"></a-sky> -->
       <a-image position="0 1.6 -1.5" height="2" width="1.334123" src="#end_menu"></a-image>
       <a-entity id="end_scene_button" class="clickable" position="0 0.78 -1.5"
         geometry="primitive: box; width: 0.65; height: 0.13; depth: 0.01" material="opacity: 0;" end-scene-cursor-listener>
