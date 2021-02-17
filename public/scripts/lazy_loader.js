@@ -7,12 +7,12 @@ AFRAME.registerComponent("lazy-loader", {
             console.log('[LAZY LOADER]loading element with id ' + id);
             if (id.includes("boba")) {
                 //load boba model by adding obj-model component
-                el.setAttribute("obj-model", "obj: boba; mtl: boba-mtl");
+                el.setAttribute("obj-model", "obj: #boba; mtl: #boba-mtl");
             } else if (id.includes("coffee")) {
                 //load coffee model by adding obj-model component 
-                el.setAttribute("obj-model", "obj: coffee; mtl: coffee-mtl");
+                el.setAttribute("obj-model", "obj: #coffee; mtl: #coffee-mtl");
             } else if (id.includes("timbit")) {          
-                el.setAttribute("obj-model", "obj: donut; mtl: donut-mtl");     
+                el.setAttribute("obj-model", "obj: #donut; mtl: #donut-mtl");     
             }
         }
         const collectibles = document.querySelectorAll(".collectible");
