@@ -16,7 +16,6 @@ AFRAME.registerComponent("viewport-observer", {
       pos.x = elPos.x; pos.y = elPos.y; pos.z = elPos.z
       if (frustum.containsPoint(pos)) {
         if (this.loader != undefined) {
-          console.log("LAZY LOADER element entered frustum")
           this.loader.triggerLoad(this.el)
           this.loader = undefined;
         }
