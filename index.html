@@ -2,7 +2,7 @@
 
 <head>
   <title>Main Mall Hustle</title>
-  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.0.2/aframe.min.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.js"></script>
   <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
@@ -18,12 +18,15 @@
   <script src="public/scripts/asset_testing.js"></script>
   <script src="public/scripts/lazy_loader.js"></script>
   <script src="public/scripts/viewport-observer.js"></script>
+  <script src="public/scripts/student-pool.js"></script>
 </head>
 
 <body>
-  <a-scene background="color: #99ccff">
+  <a-scene pool="mixin: student; size: 10" background="color: #99ccff">
     <a-assets>
       <!--Start Scene Assets-->
+      <a-mixin id="student" material="shader: flat;" static-body="sphereRadius: NaN" class="obstacle" width="1" height="2" 
+      animation="attribute:position; direction:alternate; repeat:indefinite; dur:15000; from=9.16 1 -30.90; to:9.16 1 -83.209"></a-mixin>
       <img id="start_scene_background" src="public/materials/start_scene_background.png">
       <img id="main_menu" src="public/materials/main_menu.png">
       <img id="about_game_menu" src="public/materials/about_game_menu.png">
@@ -87,7 +90,7 @@
       <a-image position="1.5 1.6 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
     </a-entity>
 
-    <a-entity lazy-loader id="game_area" position="0 0 0">
+    <a-entity lazy-loader student-pool id="game_area" position="0 0 0">
       <!-- <a-sky rotation="0 -120 0" src="#sky" radius="2500"></a-sky> -->
       <a-light type="ambient" color="#FFF"></a-light>
       <a-plane position="0 -0.025 0" color="#3A3730" height="3500" width="900" rotation="-90 0 0" static-body physics="friction: 0"></a-plane></a-plane>
@@ -159,9 +162,6 @@
         <a-entity id="coffee10" class="collectible" viewport-observer=""  position="-6.16271 1 -1028.97361" scale=".015 .015 .015"></a-entity>
       </a-entity>
         <!--<a-sphere sphere-collider='' position="3 0.5 -3" radius="0.25" color="#EF2D5E"></a-sphere>-->
-      <a-image id="student" static-body="sphereRadius: NaN" class="obstacle" position="9.16 1 -30.90" width="1" height="2" src="#person1" static-body>
-        <a-animation attribute="position" from="9.16 1 -30.90" to="9.16 1 -83.209" direction="alternate" repeat="indefinite" dur="15500"></a-animation>
-      </a-image>
       <a-image id="student2" static-body="sphereRadius: NaN" class="obstacle" position="-15.31 1 -72.50" width="1" height="2" src="#person2" static-body>
         <a-animation attribute="position" from="-15.31 1 -72.50" to="-15.31 1 -35.94" direction="alternate" repeat="indefinite" dur="15000"></a-animation>
       </a-image>
