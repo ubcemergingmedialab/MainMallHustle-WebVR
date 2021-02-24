@@ -27,6 +27,9 @@ AFRAME.registerComponent('main-mall-manager', {
         document.getElementById('cursor').setAttribute('visible', 'false');
         // teleport
         document.getElementById('rig').setAttribute('position', '0 1.6 0');
+
+        //TODO: initialize student-pool component here
+        
         // toggle isInStartArea
         this.data.isInStartArea = false;
         // toggle isInGameArea 

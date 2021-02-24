@@ -7,8 +7,11 @@ AFRAME.registerComponent("student-pool", {
     },
     tick(){
         if(this.studentPool !== undefined) {
-            console.log("STUDENT POOL INSTANTIATING");
             let student = this.studentPool.requestEntity()
+            if(student == undefined) {
+                return;
+            }
+            console.log("INSTANTIATED STUDENT");
             let cameraPosition = this.playerCamera.getAttribute("position");
             student.setAttribute("animation", "from:" + cameraPosition.x - 10 + " " + cameraPosition.y + " " + cameraPosition.z - 10 + "; to:"+ cameraPosition.x + 10 + " " + cameraPosition.y + " " + cameraPosition.z + 10)
             student.play();

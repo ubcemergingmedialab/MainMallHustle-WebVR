@@ -19,6 +19,7 @@
   <script src="public/scripts/lazy_loader.js"></script>
   <script src="public/scripts/viewport-observer.js"></script>
   <script src="public/scripts/student-pool.js"></script>
+  <script src="public/scripts/attach-pool-component.js"></script>
 </head>
 
 <body>
@@ -90,7 +91,7 @@
       <a-image position="1.5 1.6 -1" rotation="0 -45 0" height="2" width="1.334123" src="#about_game_menu"></a-image>
     </a-entity>
 
-    <a-entity lazy-loader student-pool id="game_area" position="0 0 0">
+    <a-entity lazy-loader id="game_area" position="0 0 0">
       <!-- <a-sky rotation="0 -120 0" src="#sky" radius="2500"></a-sky> -->
       <a-light type="ambient" color="#FFF"></a-light>
       <a-plane position="0 -0.025 0" color="#3A3730" height="3500" width="900" rotation="-90 0 0" static-body physics="friction: 0"></a-plane></a-plane>
