@@ -26,8 +26,6 @@
   <a-scene id="scene" pool="mixin: student; size: 10" background="color: #99ccff">
     <a-assets>
       <!--Start Scene Assets-->
-      <a-mixin id="student" material="shader: flat;" static-body="sphereRadius: NaN" class="obstacle" width="1" height="2" 
-      animation="attribute:position; direction:alternate; repeat:indefinite; dur:15000; from=9.16 1 -30.90; to:9.16 1 -83.209"></a-mixin>
       <img id="start_scene_background" src="public/materials/start_scene_background.png">
       <img id="main_menu" src="public/materials/main_menu.png">
       <img id="about_game_menu" src="public/materials/about_game_menu.png">
@@ -68,6 +66,12 @@
       <!--End Scene Assets-->
       <img id="end_scene_background" src="public/materials/end_scene_background.JPG">
       <img id="end_menu" src="public/materials/end_menu.png">
+      
+      <a-mixin id="student"
+         geometry="primitive: box; height: 2; width: 1; depth: 1"
+         material="id: theImage; src: public/materials/person1.png; color: #696969; roughness: 1; metalness: 0"
+         position="0 1 0"
+      ></a-mixin>
       <!--<a-asset-item id="room" src="public/spooky_room.obj"></a-asset-item>-->
       <!--<a-asset-item id="room-mtl" src="public/spooky_room.mtl"></a-asset-item>-->
     </a-assets>
@@ -164,183 +168,6 @@
       </a-entity>
         <!--<a-sphere sphere-collider='' position="3 0.5 -3" radius="0.25" color="#EF2D5E"></a-sphere>-->
       <a-entity id="students" ></a-entity>  
-      <a-image id="student2" static-body="sphereRadius: NaN" class="obstacle" position="-15.31 1 -72.50" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="-15.31 1 -72.50" to="-15.31 1 -35.94" direction="alternate" repeat="indefinite" dur="15000"></a-animation>
-      </a-image>
-      <a-image id="student3" static-body="sphereRadius: NaN" class="obstacle" position="5 1 -50.79" width="1" height="2" src="#person3" static-body>
-        <a-animation attribute="position" from="5 1 -50.79" to="-7 1 -50.79" direction="alternate" repeat="indefinite" dur="8000"></a-animation>
-      </a-image>
-      <a-image id="student4" static-body="sphereRadius: NaN" class="obstacle" position="-3.39 1 -93.45" width="1" height="2" src="#person4" static-body>
-        <a-animation attribute="position" from="-3.39 1 -93.45" to="6.79 1 -93.45" direction="alternate" repeat="indefinite" dur="7000"></a-animation>
-      </a-image>
-      <a-image id="student5" static-body="sphereRadius: NaN" class="obstacle" position="0.93 1 -138.12" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="10.93 1 -138.12" to="-13.93 1 -138.12" direction="alternate" repeat="indefinite" dur="10500"></a-animation>
-      </a-image>
-      <a-image id="student6" static-body="sphereRadius: NaN" class="obstacle" position="-3.21521 1 -212.65426" width="1" height="2" src="#person6" static-body>
-        <a-animation attribute="position" from="8.21521 1 -212.65426" to="-8.21521 1 -212.65426" direction="alternate" repeat="indefinite" dur="5000"></a-animation>
-      </a-image>
-      <a-image id="student7" static-body="sphereRadius: NaN" class="obstacle" position="8.08207 1 -228.32851" width="1" height="2" src="#person7" static-body>
-        <a-animation attribute="position" from="-8.08207 1 -228.32851" to="7.97840 1 -228.32851" direction="alternate" repeat="indefinite" dur="6000"></a-animation>
-      </a-image>
-      <a-image id="student8" static-body="sphereRadius: NaN" class="obstacle" position="-7.33435 1 -268.6164" width="1" height="2" src="#person8" static-body>
-        <a-animation attribute="position" from="7.33435 1 -268.6164" to="-7.33435 1 -268.6164" direction="alternate" repeat="indefinite" dur="5500"></a-animation>
-      </a-image>
-      <a-image id="student9" static-body="sphereRadius: NaN" class="obstacle" position="-6.55636 1 -285.20536" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="-6.55636 1 -285.20536" to="6.55636 1 -285.20536" direction="alternate" repeat="indefinite" dur="5750"></a-animation>
-      </a-image>
-      <a-image id="student10" static-body="sphereRadius: NaN" class="obstacle" position="1.47386 1 -317.54029" width="1" height="2" src="#person1" static-body>
-        <a-animation attribute="position" from="1.47386 1 -317.54029" to="1.47386 1 -285.54029" direction="alternate" repeat="indefinite" dur="6000"></a-animation>
-      </a-image>
-      <a-image id="student11" static-body="sphereRadius: NaN" class="obstacle" position="-12.53042 1 -345.65056" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="-12.53042 1 -345.65056" to="-12.53042 1 -405.65056" direction="alternate" repeat="indefinite" dur="10300"></a-animation>
-      </a-image>
-      <a-image id="student12" static-body="sphereRadius: NaN" class="obstacle" position="13.33547 1 -417.81184" width="1" height="2" src="#person3" static-body>
-        <a-animation attribute="position" from="13.33547 1 -417.81184" to="13.33547 1 -345.81184" direction="alternate" repeat="indefinite" dur="10600"></a-animation>
-      </a-image>
-      <a-image id="student13" static-body="sphereRadius: NaN" class="obstacle" position="-8.58113 1 -359.16494" width="1" height="2" src="#person4" static-body>
-        <a-animation attribute="position" from="-8.58113 1 -359.16494" to="8.58113 1 -359.16494" direction="alternate" repeat="indefinite" dur="5500"></a-animation>
-      </a-image>
-      <a-image id="student14" static-body="sphereRadius: NaN" class="obstacle" position="8.39542 1 -386.7248" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="8.39542 1 -386.7248" to="-8.39542 1 -386.7248" direction="alternate" repeat="indefinite" dur="6600"></a-animation>
-      </a-image>
-      <a-image id="student15" static-body="sphereRadius: NaN" class="obstacle" position="-6.02841 1 -420.2457" width="1" height="2" src="#person6" static-body>
-        <a-animation attribute="position" from="-6.02841 1 -420.2457" to="6.02841 1 -420.2457" direction="alternate" repeat="indefinite" dur="5200"></a-animation>
-      </a-image>
-      <a-image id="student16" static-body="sphereRadius: NaN" class="obstacle" position="-9.4172 1 -428.17737" width="1" height="2" src="#person7" static-body>
-        <a-animation attribute="position" from="-9.4172 1 -428.17737" to="-9.4172 1 -488.17737" direction="alternate" repeat="indefinite" dur="11200"></a-animation>
-      </a-image>
-      <a-image id="student17" static-body="sphereRadius: NaN" class="obstacle" position="13.43114 1 -486.0044" width="1" height="2" src="#person8" static-body>
-        <a-animation attribute="position" from="13.43114 1 -486.0044" to="13.43114 1 -426.00447" direction="alternate" repeat="indefinite" dur="11300"></a-animation>
-      </a-image>
-      <a-image id="student18" static-body="sphereRadius: NaN" class="obstacle" position="-8.23457 1 -435.25433" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="-8.23457 1 -435.25433" to="7.23457 1 -435.25433" direction="alternate" repeat="indefinite" dur="5000"></a-animation>
-      </a-image>
-      <a-image id="student19" static-body="sphereRadius: NaN" class="obstacle" position="7.00468 1 -459.86004" width="1" height="2" src="#person1" static-body>
-        <a-animation attribute="position" from="7.00468 1 -459.86004" to="-7.00468 1 -459.86004" direction="alternate" repeat="indefinite" dur="4800"></a-animation>
-      </a-image>
-      <a-image id="student20" static-body="sphereRadius: NaN" class="obstacle" position="-9.23457 1 -483.75374" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="-9.23457 1 -483.75374" to="8.02841 1 -483.75374" direction="alternate" repeat="indefinite" dur="5100"></a-animation>
-      </a-image>
-      <a-image id="student21" static-body="sphereRadius: NaN" class="obstacle" position="-9.4172 1 -530.31361" width="1" height="2" src="#person3" static-body>
-        <a-animation attribute="position" from="-9.4172 1 -530.31361" to="-9.4172 1 -558.17737" direction="alternate" repeat="indefinite" dur="5500"></a-animation>
-      </a-image>
-      <a-image id="student22" static-body="sphereRadius: NaN" class="obstacle" position="13.43114 1 -559.61579" width="1" height="2" src="#person4" static-body>
-        <a-animation attribute="position" from="13.43114 1 -559.61579" to="13.43114 1 -530.00447" direction="alternate" repeat="indefinite" dur="5300"></a-animation>
-      </a-image>
-      <a-image id="student23" static-body="sphereRadius: NaN" class="obstacle" position="7.20929 1 -541.60022" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="7.20929 1 -541.60022" to="-7.20929 1 -541.60022" direction="alternate" repeat="indefinite" dur="5000"></a-animation>
-      </a-image>
-      <a-image id="student24" static-body="sphereRadius: NaN" class="obstacle" position="-10.98656 1 -575.81107" width="1" height="2" src="#person6" static-body>
-        <a-animation attribute="position" from="-10.98656 1 -575.81107" to="-10.98656 1 -645.811074" direction="alternate" repeat="indefinite" dur="13800"></a-animation>
-      </a-image>
-      <a-image id="student25" static-body="sphereRadius: NaN" class="obstacle" position="12.17145 1 -643.17549" width="1" height="2" src="#person7" static-body>
-        <a-animation attribute="position" from="12.17145 1 -643.17549" to="12.17145 1 -573.17549" direction="alternate" repeat="indefinite" dur="13100"></a-animation>
-      </a-image>
-      <a-image id="student26" static-body="sphereRadius: NaN" class="obstacle" position="-10.82473 1 -590.5161" width="1" height="2" src="#person8" static-body>
-        <a-animation attribute="position" from="-10.82473 1 -590.5161" to="10.82473 1 -590.5161" direction="alternate" repeat="indefinite" dur="6500"></a-animation>
-      </a-image>
-      <a-image id="student27" static-body="sphereRadius: NaN" class="obstacle" position="10.32823 1 -618.36258" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="10.32823 1 -618.36258" to="-10.32823 1 -618.36258" direction="alternate" repeat="indefinite" dur="7000"></a-animation>
-      </a-image>
-      <a-image id="student28" static-body="sphereRadius: NaN" class="obstacle" position="-10.38492 1 -642.80831" width="1" height="2" src="#person1" static-body>
-        <a-animation attribute="position" from="-10.38492 1 -642.80831" to="10.38492 1 -642.80831" direction="alternate" repeat="indefinite" dur="6500"></a-animation>
-      </a-image>
-      <a-image id="student29" static-body="sphereRadius: NaN" class="obstacle" position="-5.96851 1 -667.91384" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="-5.96851 1 -667.91384" to="-5.96851 1 -742.61475" direction="alternate" repeat="indefinite" dur="11500"></a-animation>
-      </a-image>
-      <a-image id="student30" static-body="sphereRadius: NaN" class="obstacle" position="12.3606 1 -739.61475" width="1" height="2" src="#person3" static-body>
-        <a-animation attribute="position" from="12.3606 1 -739.61475" to="10.38492 1 -667.91384" direction="alternate" repeat="indefinite" dur="11800"></a-animation>
-      </a-image>
-      <a-image id="student31" static-body="sphereRadius: NaN" class="obstacle" position="9.73399 1 -681.51945" width="1" height="2" src="#person4" static-body>
-        <a-animation attribute="position" from="9.73399 1 -681.51945" to="-9.73399 1 -681.51945" direction="alternate" repeat="indefinite" dur="5900"></a-animation>
-      </a-image>
-      <a-image id="student32" static-body="sphereRadius: NaN" class="obstacle" position="-4.39695 1 -700.88381" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="-4.39695 1 -700.88381" to="4.39695 1 -700.88381" direction="alternate" repeat="indefinite" dur="6400"></a-animation>
-      </a-image>
-      <a-image id="student33" static-body="sphereRadius: NaN" class="obstacle" position="10.77804 1 -738.02999" width="1" height="2" src="#person6" static-body>
-        <a-animation attribute="position" from="10.77804 1 -738.02999" to="-10.77804 1 -738.02999" direction="alternate" repeat="indefinite" dur="6300"></a-animation>
-      </a-image>
-      <a-image id="student34" static-body="sphereRadius: NaN" class="obstacle" position="-5.96851 1 -748.24991" width="1" height="2" src="#person7" static-body>
-        <a-animation attribute="position" from="-5.96851 1 -748.24991" to="-5.96851 1 -806.24991" direction="alternate" repeat="indefinite" dur="12500"></a-animation>
-      </a-image>
-      <a-image id="student35" static-body="sphereRadius: NaN" class="obstacle" position="11.8915 1 -803.433" width="1" height="2" src="#person8" static-body>
-        <a-animation attribute="position" from="11.8915 1 -803.433" to="11.8915 1 -745.433" direction="alternate" repeat="indefinite" dur="16000"></a-animation>
-      </a-image>
-      <a-image id="student36" static-body="sphereRadius: NaN" class="obstacle" position="9.72076 1 -754.04473" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="15.72076 1 -754.04473" to="-15.72076 1 -754.04473" direction="alternate" repeat="indefinite" dur="9100"></a-animation>
-      </a-image>
-      <a-image id="student37" static-body="sphereRadius: NaN" class="obstacle" position="-8.58113 1 -772.79616" width="1" height="2" src="#person1" static-body>
-        <a-animation attribute="position" from="-8.58113 1 -772.79616" to="8.58113 1 -772.79616" direction="alternate" repeat="indefinite" dur="5700"></a-animation>
-      </a-image>
-      <a-image id="student38" static-body="sphereRadius: NaN" class="obstacle" position="10.01358 1 -798.66384" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="10.01358 1 -798.66384" to="-10.01358 1 -798.66384" direction="alternate" repeat="indefinite" dur="6200"></a-animation>
-      </a-image>
-      <a-image id="student39" static-body="sphereRadius: NaN" class="obstacle" position="-5.96851 1 -818.6838" width="1" height="2" src="#person3" static-body>
-        <a-animation attribute="position" from="-5.96851 1 -818.6838" to="-5.96851 1 -849.6838" direction="alternate" repeat="indefinite" dur="12000"></a-animation>
-      </a-image>
-      <a-image id="student40" static-body="sphereRadius: NaN" class="obstacle" position="11.8915 1 -849.92615" width="1" height="2" src="#person4" static-body>
-        <a-animation attribute="position" from="11.8915 1 -849.92615" to="11.8915 1 -819.92615" direction="alternate" repeat="indefinite" dur="12800"></a-animation>
-      </a-image>
-      <a-image id="student41" static-body="sphereRadius: NaN" class="obstacle" position="-8.75783 1 -822.68576" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="-8.75783 1 -822.68576" to="8.75783 1 -822.68576" direction="alternate" repeat="indefinite" dur="6300"></a-animation>
-      </a-image>
-      <a-image id="student42" static-body="sphereRadius: NaN" class="obstacle" position="9.21294 1 -842.57585" width="1" height="2" src="#person6" static-body>
-        <a-animation attribute="position" from="9.21294 1 -842.57585" to="-9.21294 1 -842.57585" direction="alternate" repeat="indefinite" dur="6800"></a-animation>
-      </a-image>
-      <a-image id="student43" static-body="sphereRadius: NaN" class="obstacle" position="-5.96851 1 -857.58312" width="1" height="2" src="#person7" static-body>
-        <a-animation attribute="position" from="-5.96851 1 -857.58312" to="-5.96851 1 -902.58312" direction="alternate" repeat="indefinite" dur="11600"></a-animation>
-      </a-image>
-      <a-image id="student44" static-body="sphereRadius: NaN" class="obstacle" position="12.17293 1 -902.52555" width="1" height="2" src="#person8" static-body>
-        <a-animation attribute="position" from="12.17293 1 -902.52555" to="12.17293 1 -857.52555" direction="alternate" repeat="indefinite" dur="11800"></a-animation>
-      </a-image>
-      <a-image id="student45" static-body="sphereRadius: NaN" class="obstacle" position="-8.42118 1 -858.38704" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="-8.42118 1 -858.38704" to="8.42118 1 -858.38704" direction="alternate" repeat="indefinite" dur="6600"></a-animation>
-      </a-image>
-      <a-image id="student46" static-body="sphereRadius: NaN" class="obstacle" position="9.0096 1 -878.77864" width="1" height="2" src="#person1" static-body>
-        <a-animation attribute="position" from="9.0096 1 -878.77864" to="-9.0096 1 -878.77864" direction="alternate" repeat="indefinite" dur="6700"></a-animation>
-      </a-image>
-      <a-image id="student47" static-body="sphereRadius: NaN" class="obstacle" position="-6.39959 1 -896.11567" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="-16.39959 1 -896.11567" to="16.39959 1 -896.11567" direction="alternate" repeat="indefinite" dur="9800"></a-animation>
-      </a-image>
-      <a-image id="student48" static-body="sphereRadius: NaN" class="obstacle" position="-5.96851 1 -903.34159" width="1" height="2" src="#person3" static-body>
-        <a-animation attribute="position" from="-5.96851 1 -903.34159" to="-5.96851 1 -953.34159" direction="alternate" repeat="indefinite" dur="11100"></a-animation>
-      </a-image>
-      <a-image id="student49" static-body="sphereRadius: NaN" class="obstacle" position="12.17293 1 -951.44414" width="1" height="2" src="#person4" static-body>
-        <a-animation attribute="position" from="12.17293 1 -951.44414" to="12.17293 1 -901.44414" direction="alternate" repeat="indefinite" dur="12000"></a-animation>
-      </a-image>
-      <a-image id="student50" static-body="sphereRadius: NaN" class="obstacle" position="-6.63238 1 -913.01559" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="-6.53238 1 -913.01559" to="6.63238 1 -913.01559" direction="alternate" repeat="indefinite" dur="6700"></a-animation>
-      </a-image>
-      <a-image id="student51" static-body="sphereRadius: NaN" class="obstacle" position="10.20209 1 -930.72756" width="1" height="2" src="#person6" static-body>
-        <a-animation attribute="position" from="10.20209 1 -930.72756" to="-10.20209 1 -930.72756" direction="alternate" repeat="indefinite" dur="6400"></a-animation>
-      </a-image>
-      <a-image id="student52" static-body="sphereRadius: NaN" class="obstacle" position="-8.60471 1 -949.7294" width="1" height="2" src="#person7" static-body>
-        <a-animation attribute="position" from="-8.60471 1 -949.7294" to="8.60471 1 -949.7294" direction="alternate" repeat="indefinite" dur="6300"></a-animation>
-      </a-image>
-      <a-image id="student53" static-body="sphereRadius: NaN" class="obstacle" position="-5.96851 1 -960.75856" width="1" height="2" src="#person8" static-body>
-        <a-animation attribute="position" from="-5.96851 1 -960.75856" to="-5.96851 1 -1020.75856" direction="alternate" repeat="indefinite" dur="12100"></a-animation>
-      </a-image>
-      <a-image id="student54" static-body="sphereRadius: NaN" class="obstacle" position="12.17293 1 -1024.87544" width="1" height="2" src="#person9" static-body>
-        <a-animation attribute="position" from="15.17293 1 -1024.87544" to="15.17293 1 -964.87544" direction="alternate" repeat="indefinite" dur="12200"></a-animation>
-      </a-image>
-      <a-image id="student55" static-body="sphereRadius: NaN" class="obstacle" position="-7.14899 1 -969.02471" width="1" height="2" src="#person1" static-body>
-        <a-animation attribute="position" from="-7.14899 1 -969.02471" to="8.14899 1 -969.02471" direction="alternate" repeat="indefinite" dur="6300"></a-animation>
-      </a-image>
-      <a-image id="student56" static-body="sphereRadius: NaN" class="obstacle" position="8.00532 1 -991.74721" width="1" height="2" src="#person2" static-body>
-        <a-animation attribute="position" from="9.00532 1 -991.74721" to="-8.00532 1 -991.74721" direction="alternate" repeat="indefinite" dur="6100"></a-animation>
-      </a-image>
-      <a-image id="student57" static-body="sphereRadius: NaN" class="obstacle" position="-6.95052 1 -1021.17308" width="1" height="2" src="#person3" static-body>
-        <a-animation attribute="position" from="-6.95052 1 -1021.17308" to="7.95052 1 -1021.17308" direction="alternate" repeat="indefinite" dur="6900"></a-animation>
-      </a-image>
-      <a-image id="student58" static-body="sphereRadius: NaN" class="obstacle" position="-12.40356 1 -1033.62864" width="1" height="2" src="#person4" static-body>
-        <a-animation attribute="position" from="-12.40356 1 -1033.62864" to="12.40356 1 -1033.62864" direction="alternate" repeat="indefinite" dur="8300"></a-animation>
-      </a-image>
-      <a-image id="student59" static-body="sphereRadius: NaN" class="obstacle" position="16.5392 1 -1036.24515" width="1" height="2" src="#person5" static-body>
-        <a-animation attribute="position" from="16.5392 1 -1036.24515" to="-16.5392 1 -1036.24515" direction="alternate" repeat="indefinite" dur="8100"></a-animation>
-      </a-image>
-      <a-image id="student60" static-body="sphereRadius: NaN" class="obstacle" position="-11.95154 1 -1044.75712" width="1" height="2" src="#person6" static-body>
-        <a-animation attribute="position" from="-11.95154 1 -1044.75712" to="11.95154 1 -1044.75712" direction="alternate" repeat="indefinite" dur="8900"></a-animation>
-      </a-image>
     </a-entity>
 
     <a-entity id="fail_area" position="-10 0 -2510">
