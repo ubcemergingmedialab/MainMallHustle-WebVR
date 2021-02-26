@@ -15,6 +15,7 @@ AFRAME.registerComponent("student-pool", {
             let cameraPosition = this.playerCamera.getAttribute("position");
             student.setAttribute("animation", "from:" + cameraPosition.x - 10 + " " + cameraPosition.y + " " + cameraPosition.z - 10 + "; to:"+ cameraPosition.x + 10 + " " + cameraPosition.y + " " + cameraPosition.z + 10)
             student.play();
+            console.log(student.getAttribute("position"))
         } else {
         }
     },
