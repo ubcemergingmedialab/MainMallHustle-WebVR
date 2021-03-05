@@ -29,7 +29,7 @@ AFRAME.registerComponent('main-mall-manager', {
         document.getElementById('rig').setAttribute('position', '0 1.6 0');
 
         //TODO: initialize student-pool component here
-        console.log("TELEPORTED TO  GAME AREA")
+        console.log("TELEPORTED TO  GAME AREA");
         var entity = document.getElementById("students");
         entity.setAttribute('student-pool', '');
         

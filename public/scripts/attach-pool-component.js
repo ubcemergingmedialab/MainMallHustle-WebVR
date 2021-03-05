@@ -11,7 +11,7 @@ const AttachComponents = (function () {
 
     function run() {
         var entity = scene.querySelector('a-entity');
-        entity.setAttribute('student-pool', '');
+        entity.setAttribute('student-pool', '')
     }
     return {
         init
