@@ -23,6 +23,7 @@ AFRAME.registerComponent('player-controller', {
                 // Get camera direction
                 var camera = document.querySelector('[camera]').object3D;
                 var cameraAngle = camera.getWorldDirection();
+                console.log("collided with obstacle");
                 // Apply impulse
                 var sphere = document.getElementById('sphere');
                 var impulse = {x: 300 * cameraAngle.x, y: 0, z: 300 * cameraAngle.z}; // maybe setup up a field later
