@@ -33,7 +33,7 @@ AFRAME.registerComponent("student-pool", {
             // use generated to pass into student material. 
             student.setAttribute("animation", animationString)
             student.setAttribute("material", "src: " + this.generatedId);   // use generated to pass into student material 
-            
+            student.setAttribute("class", "obstacle");
             queue.push(student)
             //console.log(student.setAttribute("material", "src: " + this.generatedId));
             console.log(student.getAttribute("animation"))

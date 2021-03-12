@@ -23,7 +23,6 @@ AFRAME.registerComponent("timer", {
         // console.log("timer: " + document.getElementById("main_mall_manager").getAttribute("main-mall-manager").isInGameArea.toString() + document.getElementById("main_mall_manager").getAttribute("main-mall-manager").isPlayerReady.toString());
         if (document.getElementById("main_mall_manager").getAttribute("main-mall-manager").isInGameArea) { // && document.getElementById("main_mall_manager").getAttribute("main-mall-manager").isPlayerReady
             el.setAttribute("scale", { x: 2, y: 2, z: 2 });
-            console.log("TIMER START");
             data.timeBank -= (timeDelta / 1000) * data.timeMultiplier;
             if (data.timeBank >= 0) {
                 let minutes = Math.floor(data.timeBank / 60);
