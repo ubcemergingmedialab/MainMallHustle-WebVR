@@ -28,11 +28,20 @@ AFRAME.registerComponent('main-mall-manager', {
         // teleport
         document.getElementById('rig').setAttribute('position', '0 1.6 0');
 
-        //TODO: initialize student-pool component here
+         //initialize timer component here
+         //var entity = document.getElementById("timer");
+         //entity.setAttribute('timer', '');
+
+        //initialize student-pool component here
         console.log("TELEPORTED TO  GAME AREA");
         var entity = document.getElementById("students");
         entity.setAttribute('student-pool', '');
         
+        //initialize timer component here
+        console.log("TELEPORTED TO  TIMER");
+        var entity = document.getElementById("timer_text");
+        entity.setAttribute('timer', '');
+
         // toggle isInStartArea
         this.data.isInStartArea = false;
         // toggle isInGameArea 

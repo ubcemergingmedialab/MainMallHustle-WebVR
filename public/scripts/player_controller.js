@@ -31,7 +31,7 @@ AFRAME.registerComponent('player-controller', {
                 sphere.body.applyImpulse(impulse, position);
                 // Subtract from timer, w/ minus text
                 var currentTimeBank = document.getElementById('timer_text').getAttribute('timer').timeBank;
-                document.getElementById('timer_text').setAttribute('timer', {timeBank: currentTimeBank-10, timeMultiplier: 7.5});
+                document.getElementById('timer_text').setAttribute('timer', {timeBank: currentTimeBank-10, timeMultiplier: 1});
                 document.getElementById('minus_text').setAttribute('visible', 'true');
                 setTimeout(function () {
                     document.getElementById('minus_text').setAttribute('visible', 'false');
@@ -55,7 +55,7 @@ AFRAME.registerComponent('player-controller', {
                 targetEntity.setAttribute('visible', 'false');
                 // Add to timer, w/ plus text
                 var currentTimeBank = document.getElementById('timer_text').getAttribute('timer').timeBank;
-                document.getElementById('timer_text').setAttribute('timer', {timeBank: currentTimeBank+5, timeMultiplier: 7.5});
+                document.getElementById('timer_text').setAttribute('timer', {timeBank: currentTimeBank+5, timeMultiplier: 1});
                 document.getElementById('plus_text').setAttribute('visible', 'true');
                 setTimeout(function () {
                     document.getElementById('plus_text').setAttribute('visible', 'false');

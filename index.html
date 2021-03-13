@@ -82,11 +82,12 @@
         <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 5000" raycaster="objects: .clickable" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: white; shader: flat">
           <a-animation begin="cursor-hovering" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
         </a-entity>
-        <a-entity id="timer_text" position="0 0.25 -1" text="value:; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" timer></a-entity>
+        <a-entity id="timer_text" position="0 0.25 -1" text="value:; color:#FFFFFF; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2"></a-entity>
         <a-entity id="minus_text" position="0.15 0.25 -1" text="value:-10; color:#FF0000; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" visible="false"></a-entity>
         <a-entity id="plus_text" position="0.15 0.25 -1" text="value:+5; color:#00FF00; font:public/fonts/Whitney.fnt; align:center" scale="2 2 2" visible="false"></a-entity>
       </a-entity>
     </a-entity>
+
 
     <a-entity id="start_area" position="0 0 2510">
       <!-- <a-sky rotation="0 -120 0" src="#start_scene_background" radius="10"></a-sky> -->
