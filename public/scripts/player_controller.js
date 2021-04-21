@@ -6,7 +6,25 @@ AFRAME.registerComponent('player-controller', {
         factor: {type: 'number', default: 5.5},
         flag: {type: 'boolean', default: false},
     },
-    init: function () {
+    init: function (time, timeDelta) {
+        setInterval(() => {
+            var data = this.data;
+            if (data.flag && document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isInGameArea) { 
+                // Get camera direction
+                var camera = document.querySelector('[camera]').object3D;
+                var cameraAngle = camera.getWorldDirection(); 
+                // Apply impulse
+                var sphere = document.getElementById('sphere');
+    
+                setTimeout(function () {
+                    var impulse = { x: -data.speed * data.factor * cameraAngle.x, y: 0, z: -data.speed * data.factor * cameraAngle.z }; 
+                    var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
+                    sphere.body.applyImpulse(impulse, position);
+                }, 25);
+                
+            }
+
+        }, 25);
         // For player movement
         var data = this.data;
         var scene = document.querySelector('a-scene');
@@ -79,22 +97,10 @@ AFRAME.registerComponent('player-controller', {
                 document.getElementById('main_mall_manager').components['main-mall-manager'].teleportToEndArea(); // need to use brackets for dash names
             }
         });
+        
     },
-    tick: function(time, timeDelta) {
-        var data = this.data;
-        if (data.flag && document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isInGameArea) { //&& document.getElementById('main_mall_manager').getAttribute('main-mall-manager').isPlayerReady
-            // Get camera direction
-            var camera = document.querySelector('[camera]').object3D;
-            var cameraAngle = camera.getWorldDirection(); // Why is it completely in the opposite direction?
-            // Apply impulse
-            var sphere = document.getElementById('sphere');
 
-            setTimeout(function () {
-                var impulse = { x: -data.speed * data.factor * cameraAngle.x, y: 0, z: -data.speed * data.factor * cameraAngle.z }; // maybe setup up a field later
-                var position = new CANNON.Vec3().copy(sphere.getAttribute('position'));
-                sphere.body.applyImpulse(impulse, position);
-            }, 25);
-            // sphere.flushToDOM();
-        }
+    tick () {
+       
     },
 });
