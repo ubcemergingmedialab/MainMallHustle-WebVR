@@ -23,7 +23,7 @@
 </head>
 
 <body>
-  <a-scene id="scene" pool="mixin: student; size: 10" background="color: #99ccff">
+  <a-scene id="scene" pool="mixin: student; size: 20" background="color: #99ccff">
     <a-assets>
       <!--Start Scene Assets-->
       <img id="start_scene_background" src="public/materials/start_scene_background.png">
@@ -52,6 +52,8 @@
       <a-asset-item id="coffee-mtl" src="public/models/coffee.mtl"></a-asset-item>
       <a-asset-item id="donut" src="public/models/donut.obj"></a-asset-item>
       <a-asset-item id="donut-mtl" src="public/models/donut.mtl"></a-asset-item>
+      <a-asset-item id="kirk-obj" src="public/models/kirk.obj"></a-asset-item>
+      <a-asset-item id="kirk-mtl" src="public/models/kirk.mtl"></a-asset-item>
       <img id="person1" src="public/materials/person1.png">
       <img id="person2" src="public/materials/person2.png">
       <img id="person3" src="public/materials/person3.png">
@@ -112,6 +114,8 @@
       <a-entity id="mainmallosm" position="-56.63483 -28.8 -545.11442" rotation="0 90 0" obj-model="obj:#mainmallosm-obj; mtl:#mainmallosm-mtl" resize="axis:z; value:1600"></a-entity>
         <a-box id="goal" class="goal" transparent="true" opacity="0" position="0 0.5 -1046" width="30" height="1" depth="1"></a-box> 
       <a-entity id="clouds" rotation="0 90 0" position="-213.9339 259.70646 -547.47457" obj-model="obj:#clouds-obj; mtl:#clouds-mtl" resize="axis:z; value:200"></a-entity>
+      <a-entity id="kirk" rotation="0 0 0" position="0 0 30" obj-model="obj:#kirk-obj; mtl:#kirk-mtl"></a-entity>
+      <a-light type="directional" color="#FFF" position="0 10 0"></a-light>
       <a-entity id="trees" position="-10.02559 12 -533.47428" rotation="0 90 0" obj-model="obj:#trees-obj; mtl:#trees-mtl" resize="axis:z; value:1100"></a-entity>
         <a-cylinder id="tree_collider1" static-body="sphereRadius: NaN" visible="false" position="-13.6 0.5 -214" radius="1.8" static-body></a-cylinder>
         <a-cylinder id="tree_collider2" visible="false" position="14.5 0.5 -214.4" static-body="sphereRadius: NaN"></a-cylinder>
